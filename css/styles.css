@@ -4,26 +4,23 @@
   --cor-marca-azul: #1a2048;
   --cor-marca-dourado: #ebba1a;
   --cor-dourado-escuro: #d4a513;
-  
   /* Neutros profissionais */
   --cor-fundo: #ffffff;
   --cor-fundo-suave: #f8fafc;
   --cor-texto: #1a2048;
   --cor-texto-secundario: #4b5563;
   --cor-borda: #e5e7eb;
-  --sombra-suave: 0 2px 8px rgba(0,0,0,0.04);
-  --transicao: all 0.25s ease;
+  --sombra-suave: 0 4px 12px rgba(0,0,0,0.06);
+  --transicao: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-* {
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -46,30 +43,12 @@ h1, h2, h3, h4 {
   line-height: 1.25;
   font-weight: 700;
 }
-h1 {
-  font-size: 2.25rem;
-  margin-bottom: 1rem;
-}
-h1 strong {
-  color: var(--cor-marca-dourado);
-}
-h2 {
-  font-size: 1.875rem;
-  margin: 2rem 0 1.25rem;
-}
-h2 strong {
-  color: var(--cor-marca-dourado);
-}
-h3 {
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-  color: var(--cor-marca-azul);
-}
-h4 {
-  font-size: 1.125rem;
-  margin: 1.5rem 0 0.75rem;
-  color: var(--cor-marca-azul);
-}
+h1 { font-size: 2.25rem; margin-bottom: 1rem; }
+h1 strong { color: var(--cor-marca-dourado); }
+h2 { font-size: 1.875rem; margin: 2rem 0 1.25rem; }
+h2 strong { color: var(--cor-marca-dourado); }
+h3 { font-size: 1.25rem; margin-bottom: 1rem; color: var(--cor-marca-azul); }
+h4 { font-size: 1.125rem; margin: 1.5rem 0 0.75rem; color: var(--cor-marca-azul); }
 
 .section-lead {
   text-align: center;
@@ -80,38 +59,26 @@ h4 {
   font-weight: 400;
 }
 
-/* === BOTÕES === */
+/* === BOTÕES PADRONIZADOS === */
 .btn {
   display: inline-block;
-  padding: 0.85rem 1.75rem;
-  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--cor-marca-dourado);
+  color: white;
   font-weight: 600;
-  text-align: center;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
   text-decoration: none;
   cursor: pointer;
   transition: var(--transicao);
-  border: none;
-  font-size: 1rem;
+  text-align: center;
+  min-width: 140px;
 }
-
-.btn-primary {
-  background-color: var(--cor-marca-dourado);
-  color: white;
-}
-.btn-primary:hover {
+.btn:hover {
   background-color: var(--cor-dourado-escuro);
   transform: translateY(-2px);
-  box-shadow: var(--sombra-suave);
-}
-
-.btn-secondary {
-  background-color: white;
-  color: var(--cor-marca-dourado);
-  border: 2px solid var(--cor-marca-dourado);
-}
-.btn-secondary:hover {
-  background-color: #fff9e6;
-  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(235, 186, 26, 0.25);
 }
 
 .btn-whatsapp {
@@ -124,11 +91,13 @@ h4 {
   align-items: center;
   gap: 0.75rem;
   box-shadow: 0 4px 12px rgba(26, 32, 72, 0.15);
+  border: none;
+  text-decoration: none;
 }
 .btn-whatsapp:hover {
   background-color: #121734;
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(26, 32, 72, 0.25);
+  box-shadow: 0 8px 24px rgba(26, 32, 72, 0.25);
 }
 
 /* === HEADER === */
@@ -145,14 +114,12 @@ h4 {
   align-items: center;
   padding: 1rem;
 }
-
 .logo img {
   height: 30px;
-  width: 30px;          /* mesma largura da altura */
-  border-radius: 50%;   /* deixa redondo */
-  object-fit: cover;    /* ajusta a imagem dentro do círculo */
+  width: 30px;
+  border-radius: 50%;
+  object-fit: cover;
 }
-
 .nav ul {
   display: flex;
   gap: 1.5rem;
@@ -178,35 +145,17 @@ h4 {
   width: 100%;
 }
 
-.cta-header {
-  background-color: var(--cor-marca-dourado);
-  color: white;
-  border: none;
-  padding: 0.5rem 1.25rem;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-}
-.cta-header:hover {
-  background-color: var(--cor-dourado-escuro);
-}
-
 /* === HERO === */
 .hero {
   padding: 5rem 0 4rem;
   text-align: center;
   background-color: white;
-  color: var(--cor-texto);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.hero h1 {
-  color: var(--cor-marca-azul);
+.hero:not(:target) {
+  scroll-snap-align: start;
 }
-.hero p {
-  font-size: 1.125rem;
-  max-width: 700px;
-  margin: 0 auto 1.5rem;
-  color: var(--cor-texto-secundario);
-}
+.hero h1 { color: var(--cor-marca-azul); }
 .hero-sub {
   font-size: 1.25rem;
   max-width: 700px;
@@ -214,46 +163,107 @@ h4 {
   color: var(--cor-texto-secundario);
 }
 
-/* === SEÇÕES === */
-.diferenciais, .planos, .contato, .sobre, .garantias, .hospedagem-section {
+/* === SEÇÕES COM TRANSIÇÕES DIFERENTES === */
+.sobre,
+.garantias,
+.diferenciais,
+.planos,
+.contato {
   padding: 4rem 0;
+  opacity: 1;
+  transform: none;
+  transition: 
+    opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.sobre, .garantias {
+
+.sobre {
   background-color: var(--cor-fundo-suave);
+  transform: translateX(0);
+}
+.garantias {
+  background-color: var(--cor-fundo-suave);
+  transform: translateX(0);
+}
+.diferenciais {
+  transform: rotateY(0) scale(1);
+}
+.planos {
+  transform: scale(1);
+}
+.contato {
+  background-color: var(--cor-fundo-suave);
+  transform: translateY(0);
 }
 
-.diferenciais .cards-grid,
-.sobre .pilares,
-.hospedagem-section .hospedagem-grid,
-.garantias .garantias-grid,
-.planos .plano-grid,
-.planos .manutencao-grid,
-.diferenciais .processo-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-  margin-top: 2rem;
+/* === ANIMAÇÕES DOS CARDS (mantidas intactas) === */
+.pilar {
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: fadeInLeft 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: calc(0.1s * var(--index));
+}
+.garantia {
+  opacity: 0;
+  transform: translateY(20px) scale(0.97);
+  animation: fadeInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: calc(0.15s * var(--index));
+}
+.processo-card {
+  opacity: 0;
+  transform: translateX(30px);
+  animation: fadeInRight 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: calc(0.1s * var(--index));
+}
+.plano, .hosp-item, .manutencao-plano {
+  opacity: 0;
+  transform: scale(0.95) rotateY(5deg);
+  animation: fadeInScale 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: calc(0.12s * var(--index));
 }
 
-.card, .pilar, .hosp-item, .garantia, .plano, .manutencao-plano, .processo-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: var(--sombra-suave);
-  max-width: 450px;
-  transition: var(--transicao);
+@keyframes fadeInLeft {
+  to { opacity: 1; transform: translateX(0); }
 }
-.card:hover, .plano:hover {
+@keyframes fadeInRight {
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes fadeInScale {
+  to { opacity: 1; transform: scale(1) rotateY(0); }
+}
+
+/* Hover premium */
+.pilar:hover, .garantia:hover, .processo-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+.plano:hover, .hosp-item:hover, .manutencao-plano:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 
+    0 12px 32px rgba(26, 32, 72, 0.12),
+    0 0 0 1px rgba(235, 186, 26, 0.15);
+  z-index: 2;
+  position: relative;
+}
+
+/* Estilo base dos cards */
+.pilar, .garantia, .processo-card,
+.plano, .hosp-item, .manutencao-plano {
+  background: white;
+  padding: 2.25rem;
+  border-radius: 16px;
+  box-shadow: var(--sombra-suave);
+  transition: var(--transicao);
+  flex: 1 1 300px;
+  max-width: 480px;
+  min-width: 280px;
 }
 
 /* === LISTAS === */
-ul {
-  list-style: none;
-  padding-left: 0;
-}
+ul { list-style: none; padding-left: 0; }
 li {
   padding: 0.5rem 0;
   position: relative;
@@ -271,7 +281,6 @@ li:before {
 
 /* === PLANOS === */
 .plano {
-  max-width: 480px;
   position: relative;
 }
 .plano-tag {
@@ -293,7 +302,6 @@ li:before {
 .plano.destaque .plano-tag {
   background: var(--cor-dourado-escuro);
 }
-
 .price {
   font-size: 1.875rem;
   font-weight: 700;
@@ -306,7 +314,6 @@ li:before {
   display: block;
   margin-top: 0.25rem;
 }
-
 .publico, .plano-resumo {
   color: var(--cor-texto-secundario);
   font-size: 0.95rem;
@@ -314,29 +321,30 @@ li:before {
   margin: 1rem 0;
 }
 
-/* === CENTRALIZAÇÃO DE SEÇÕES === */
+/* === CENTRALIZAÇÃO === */
 .hero,
 .diferenciais .container,
 .planos .container,
 .contato .container,
 .sobre .container,
-.garantias .container,
-.hospedagem-section .container {
+.garantias .container {
   text-align: center;
 }
-.cards-grid, .pilares, .hospedagem-grid, .manutencao-grid, 
-.garantias-grid, .plano-grid, .processo-grid {
+.pilares, .garantias-grid, .processo-grid,
+.plano-grid, .hospedagem-grid, .manutencao-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
   text-align: left;
 }
 
 /* === CONTATO === */
 .contato {
-  background-color: var(--cor-fundo-suave);
   text-align: center;
 }
-.contato-cta {
-  margin-top: 2rem;
-}
+.contato-cta { margin-top: 2rem; }
 .cta-texto-destaque {
   font-size: 1.375rem;
   line-height: 1.4;
@@ -350,7 +358,7 @@ li:before {
 }
 
 /* === MODAL === */
-.modal {
+.modal, .modal-overlay, .modal-custom, .overlay-custom {
   position: fixed;
   top: 0;
   left: 0;
@@ -358,26 +366,18 @@ li:before {
   height: 100%;
   z-index: 2000;
   display: none;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  padding: 2rem;
-  overflow-y: auto;
 }
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+.modal-overlay, .overlay-custom {
+  background: rgba(0,0,0,0.5);
   z-index: 1999;
-  display: none;
 }
 .modal-content {
   background: white;
   border-radius: 16px;
   max-width: 800px;
-  width: 100%;
+  width: 90%;
   padding: 2.5rem;
   position: relative;
   box-shadow: 0 10px 40px rgba(0,0,0,0.15);
@@ -435,7 +435,7 @@ li:before {
   border-top: 1px solid var(--cor-borda);
 }
 
-/* === FOOTER MINIMALISTA === */
+/* === FOOTER === */
 .footer {
   background: var(--cor-marca-azul);
   color: rgba(255, 255, 255, 0.8);
@@ -443,9 +443,6 @@ li:before {
   font-size: 0.9rem;
   line-height: 1.6;
   text-align: center;
-}
-.footer p {
-  margin: 0;
 }
 .footer a {
   color: rgba(255, 255, 255, 0.95);
@@ -456,108 +453,31 @@ li:before {
   opacity: 0.7;
   text-decoration: underline;
 }
-.footer br + br {
-  display: none;
-}
-@media (max-width: 600px) {
-  .footer {
-    padding: 1.4rem 0;
-    font-size: 0.85rem;
-    line-height: 1.5;
-  }
-  .footer br {
-    display: none;
-  }
-  .footer a:not(:last-child):after {
-    content: " • ";
-    margin: 0 0.4rem;
-  }
-}
 
 /* === RESPONSIVO === */
 @media (max-width: 768px) {
   h1 { font-size: 1.875rem; }
   h2 { font-size: 1.625rem; }
   .hero { padding: 3rem 0 2.5rem; }
-  
-  .cards-grid, .pilares, .hospedagem-grid, .manutencao-grid, 
-  .garantias-grid, .plano-grid, .processo-grid {
+  .pilares, .garantias-grid, .processo-grid,
+  .plano-grid, .hospedagem-grid, .manutencao-grid {
     flex-direction: column;
     align-items: center;
   }
-  
-  .card, .plano, .manutencao-plano, .hosp-item, .garantia, .pilar, .processo-card {
-    width: 100%;
-    max-width: 100%;
-  }
-  
-  .modal-content { padding: 1.5rem; }
-}
-/* === GRIDS UNIVERSAIS PARA CARDS LADO A LADO === */
-
-/* Aplica a todos os containers de cards */
-.cards-grid,
-.pilares,
-.hospedagem-grid,
-.garantias-grid,
-.plano-grid,
-.manutencao-grid,
-.processo-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-  margin-top: 2rem;
-}
-
-/* Estilo base para cada card */
-.card,
-.pilar,
-.hosp-item,
-.garantia,
-.plano,
-.manutencao-plano,
-.processo-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: var(--sombra-suave);
-  transition: var(--transicao);
-  /* Lado a lado em desktop */
-  flex: 1 1 300px;      /* Cresce, encolhe, base de 300px */
-  max-width: 480px;     /* Limite máximo para não ficar gigante */
-  min-width: 280px;     /* Mínimo para não espremer demais */
-}
-
-/* Efeito hover suave */
-.card:hover,
-.plano:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-}
-
-/* Em telas pequenas, empilha */
-@media (max-width: 768px) {
-  .cards-grid,
-  .pilares,
-  .hospedagem-grid,
-  .garantias-grid,
-  .plano-grid,
-  .manutencao-grid,
-  .processo-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .card,
-  .plano,
-  .manutencao-plano,
-  .hosp-item,
-  .garantia,
-  .pilar,
-  .processo-card {
+  .pilar, .garantia, .processo-card,
+  .plano, .hosp-item, .manutencao-plano {
     width: 100%;
     max-width: 100%;
     min-width: auto;
   }
+  .modal-content { padding: 1.5rem; }
+}
+
+/* === TRANSIÇÕES SUAVES ENTRE SEÇÕES (fallback seguro) === */
+@media (prefers-reduced-motion: no-preference) {
+  .sobre { transform: translateX(0); }
+  .garantias { transform: translateX(0); }
+  .diferenciais { transform: rotateY(0) scale(1); }
+  .planos { transform: scale(1); }
+  .contato { transform: translateY(0); }
 }
