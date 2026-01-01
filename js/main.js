@@ -1,4 +1,35 @@
-// Dados dos planos (mantidos iguais)
+// ========== CARRINHO VISÍVEL ==========
+let carrinho = {
+  plano: null,
+  hospedagem: null,
+  manutencao: null
+};
+
+// Atualiza a exibição do carrinho
+function atualizarCarrinho() {
+  const container = document.getElementById('itens-carrinho');
+  const miniCarrinho = document.getElementById('mini-carrinho');
+  const btnFinalizar = document.getElementById('finalizar-pedido');
+  const btnEnviar = document.getElementById('enviar-pedido');
+
+  const itens = [];
+  if (carrinho.plano) itens.push(`Plano: ${carrinho.plano}`);
+  if (carrinho.hospedagem) itens.push(`Hospedagem: ${carrinho.hospedagem}`);
+  if (carrinho.manutencao) itens.push(`Manutenção: ${carrinho.manutencao}`);
+
+  if (itens.length > 0) {
+    container.innerHTML = '<li>' + itens.join('</li><li>') + '</li>';
+    miniCarrinho.style.display = 'block';
+    if (btnEnviar) btnEnviar.style.display = 'block';
+    if (btnFinalizar) btnFinalizar.style.display = 'block';
+  } else {
+    miniCarrinho.style.display = 'none';
+    if (btnEnviar) btnEnviar.style.display = 'none';
+    if (btnFinalizar) btnFinalizar.style.display = 'none';
+  }
+}
+
+// ========== DADOS DOS PLANOS ==========
 const planos = {
   "start": {
     titulo: "Plano Start+ — Primeiro Resultado",
@@ -37,8 +68,7 @@ const planos = {
       <h4 style="margin-top: 1.5rem;">Processo:</h4>
       <p><strong>1ª reunião (briefing):</strong> Entendemos sua marca, serviços, definimos textos, criamos contas no Google, enviamos contrato e alinhamos prazos.</p>
       <p><strong>2ª reunião (entrega):</strong> Apresentamos o site, entregamos senhas, e-mails, manuais e fazemos treinamento prático.</p>
-    `,
-    whatsappMsg: "Olá! Gostaria de contratar o Plano Start+ da Real Result Solutions. Meu negócio é: [descreva brevemente]."
+    `
   },
   "essencial": {
     titulo: "Plano Essencial — Autoridade Local",
@@ -72,64 +102,43 @@ const planos = {
       <p>Google Search Console, Google Analytics (GA4), PageSpeed Insights, Mobile-Friendly Test, Schema Markup para SEO local, SSL, compressão de imagens, proteções de segurança.</p>
       <h4 style="margin-top: 1rem;">Processo:</h4>
       <p>Mesmo do Start+, com foco extra em autoridade local, Google Meu Negócio e conversão.</p>
-    `,
-    whatsappMsg: "Olá! Gostaria de contratar o Plano Essencial da Real Result Solutions. Meu negócio é: [descreva brevemente]."
-  },
-  "manutencao-start": {
-    titulo: "Manutenção Start",
-    promessa: `<p>Você não precisa mais se preocupar com quedas, atualizações ou segurança básica. Nós cuidamos disso para você — com simplicidade e tranquilidade.</p>`,
-    detalhes: `<ul><li>Atualizações de texto simples</li><li>Backup mensal</li><li>Monitoramento 24/7 do site no ar</li><li>Suporte de até 1h por dia útil</li></ul>`,
-    whatsappMsg: "Olá! Gostaria de contratar a Manutenção Start da Real Result Solutions."
-  },
-  "manutencao-essencial": {
-    titulo: "Manutenção Essencial",
-    promessa: `<p>Seu SEO não para de melhorar. Você recebe relatórios claros do que foi feito e do que melhorou — sem precisar entender de tecnologia.</p>`,
-    detalhes: `<ul><li>Tudo do Start</li><li>Atualizações semanais (texto, imagens, vídeos)</li><li>Manutenção de SEO mensal</li><li>Backup quinzenal</li><li>Suporte de até 3h por dia útil</li></ul>`,
-    whatsappMsg: "Olá! Gostaria de contratar a Manutenção Essencial da Real Result Solutions."
-  },
-  "manutencao-avancada": {
-    titulo: "Manutenção Avançada",
-    promessa: `<p>Você para de gastar energia com tecnologia e foca no que sabe fazer de melhor: atender, vender e crescer. Nós otimizamos seu site continuamente — com dados reais.</p>`,
-    detalhes: `<ul><li>Tudo do Essencial</li><li>SEO contínuo e evolutivo</li><li>Monitoramento diário de conversões</li><li>Melhorias mensais com base em dados</li><li>Otimização contínua de performance</li><li>Ajustes estratégicos em CTAs e velocidade</li><li>Relatório mensal detalhado</li><li>Suporte prioritário 24h</li></ul>`,
-    whatsappMsg: "Olá! Gostaria de contratar a Manutenção Avançada da Real Result Solutions."
+    `
   }
 };
 
-// Função para atualizar o link do WhatsApp no modal
-function atualizarWhatsApp(planoId) {
-  const plano = planos[planoId];
-  if (!plano) return;
-
-  const whatsappLink = document.getElementById('whatsapp-link');
-  if (whatsappLink) {
-    const encodedMsg = encodeURIComponent(plano.whatsappMsg);
-    whatsappLink.href = `https://wa.me/34991282814?text=${encodedMsg}`;
-  }
-}
-
-// Abrir modal
+// ========== MODAL DE PLANOS ==========
 document.querySelectorAll('.open-modal').forEach(btn => {
   btn.addEventListener('click', () => {
     const planoId = btn.dataset.plano;
     const plano = planos[planoId];
-    
     if (!plano) return;
-    
+
     document.getElementById('modal-titulo').textContent = plano.titulo;
     document.getElementById('tab-promessa').innerHTML = plano.promessa;
     document.getElementById('tab-detalhes').innerHTML = plano.detalhes;
-    
-    // Atualiza o link do WhatsApp
-    atualizarWhatsApp(planoId);
-    
-    // Mostra modal
+
+    const btnAdicionar = document.getElementById('botao-quero-plano');
+    if (btnAdicionar) {
+      btnAdicionar.dataset.plano = planoId;
+      btnAdicionar.textContent = `Adicionar ${planoId === 'start' ? 'Start+' : 'Essencial'} ao carrinho`;
+    }
+
     document.getElementById('modal-plano').style.display = 'flex';
     document.getElementById('modal-overlay').style.display = 'block';
     document.body.style.overflow = 'hidden';
   });
 });
 
-// Fechar modal
+document.addEventListener('click', function(e) {
+  if (e.target.classList.contains('tab-btn')) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    e.target.classList.add('active');
+    const tabId = e.target.dataset.tab;
+    document.getElementById(`tab-${tabId}`).classList.add('active');
+  }
+});
+
 document.querySelectorAll('.close-modal, #modal-overlay').forEach(el => {
   el.addEventListener('click', () => {
     document.getElementById('modal-plano').style.display = 'none';
@@ -138,14 +147,121 @@ document.querySelectorAll('.close-modal, #modal-overlay').forEach(el => {
   });
 });
 
-// Trocar abas
-document.addEventListener('click', function(e) {
-  if (e.target.classList.contains('tab-btn')) {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
-    
-    e.target.classList.add('active');
-    const tabId = e.target.dataset.tab;
-    document.getElementById(`tab-${tabId}`).classList.add('active');
+// ========== ADICIONAR PLANO DO MODAL ==========
+document.getElementById('botao-quero-plano')?.addEventListener('click', function() {
+  const planoId = this.dataset.plano;
+  if (!planoId) return;
+  const nome = planoId === 'start' ? 'Start+' : 'Essencial';
+  carrinho.plano = nome;
+  document.getElementById('modal-plano').style.display = 'none';
+  document.getElementById('modal-overlay').style.display = 'none';
+  document.body.style.overflow = 'auto';
+  atualizarCarrinho();
+});
+
+// ========== ADICIONAR / REMOVER ITENS ==========
+function toggleItem(tipo, valor) {
+  if (carrinho[tipo] === valor) {
+    carrinho[tipo] = null;
+  } else {
+    carrinho[tipo] = valor;
+  }
+  atualizarCarrinho();
+}
+
+document.querySelectorAll('.add-to-cart').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const tipo = this.dataset.type;
+    const valor = this.dataset.value;
+    toggleItem(tipo, valor);
+  });
+});
+
+// ========== FINALIZAR PEDIDO ==========
+function enviarCarrinho() {
+  let msg = "Olá! Gostaria de fechar um pedido com os seguintes itens:\n\n";
+  if (carrinho.plano) msg += `• Plano: ${carrinho.plano}\n`;
+  if (carrinho.hospedagem) msg += `• Hospedagem: ${carrinho.hospedagem}\n`;
+  if (carrinho.manutencao) msg += `• Manutenção: ${carrinho.manutencao}\n`;
+  msg += "\nPor favor, podemos agendar uma reunião de briefing para alinhar detalhes?";
+  const encoded = encodeURIComponent(msg);
+  window.open(`https://wa.me/34991282814?text=${encoded}`, '_blank');
+}
+
+document.getElementById('finalizar-pedido')?.addEventListener('click', enviarCarrinho);
+document.getElementById('enviar-pedido')?.addEventListener('click', enviarCarrinho);
+
+// ========== TRANSIÇÕES DE ALTA QUALIDADE ENTRE SEÇÕES ==========
+document.addEventListener('DOMContentLoaded', () => {
+  const sections = [
+    { selector: '.hero',        effect: 'fade' },
+    { selector: '.sobre',       effect: 'slide-left' },
+    { selector: '.garantias',   effect: 'slide-right' },
+    { selector: '.diferenciais', effect: 'rotate' },
+    { selector: '#planos',      effect: 'zoom' },
+    { selector: '#hospedagem',  effect: 'zoom' },
+    { selector: '#manutencao',  effect: 'zoom' },
+    { selector: '.contato',     effect: 'slide-up' }
+  ];
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        let matched = null;
+        for (const s of sections) {
+          if (
+            (s.selector.startsWith('#') && entry.target.id === s.selector.slice(1)) ||
+            (s.selector.startsWith('.') && entry.target.classList.contains(s.selector.slice(1)))
+          ) {
+            matched = s;
+            break;
+          }
+        }
+        if (matched) {
+          animateSection(entry.target, matched.effect);
+          observer.unobserve(entry.target);
+        }
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: "0px 0px -100px 0px"
+  });
+
+  sections.forEach(({ selector }) => {
+    const el = document.querySelector(selector);
+    if (el) observer.observe(el);
+  });
+
+  // Anima o hero imediatamente
+  const hero = document.querySelector('.hero');
+  if (hero) {
+    setTimeout(() => animateSection(hero, 'fade'), 300);
   }
 });
+
+function animateSection(el, type) {
+  el.style.transition = 'opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+  el.style.opacity = '1';
+  
+  switch (type) {
+    case 'fade':
+      el.style.transform = 'translateY(0)';
+      break;
+    case 'slide-left':
+      el.style.transform = 'translateX(0)';
+      break;
+    case 'slide-right':
+      el.style.transform = 'translateX(0)';
+      break;
+    case 'slide-up':
+      el.style.transform = 'translateY(0)';
+      break;
+    case 'rotate':
+      el.style.transform = 'rotateY(0) scale(1)';
+      break;
+    case 'zoom':
+      el.style.transform = 'scale(1)';
+      break;
+  }
+}
