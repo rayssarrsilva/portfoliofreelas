@@ -50,7 +50,7 @@ const planos = {
         <li>One Page personalizável (Sobre, Serviços, Portfólio, Depoimentos, Contato, Localização, Horários)</li>
         <li>Design alinhado à identidade da sua marca (cores, fontes, estilo)</li>
         <li>Domínio + hospedagem anuais inclusos</li>
-        <li>Até 20 fotos/vídeos otimizados</li>
+        <li>fotos/vídeos otimizados e ilimitados</li>
         <li>Treinamento básico + documentação + manual em vídeo</li>
         <li>Totalmente responsivo (mobile-first)</li>
         <li>Carregamento rápido (imagens comprimidas + código leve)</li>
