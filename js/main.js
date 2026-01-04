@@ -30,78 +30,70 @@ function atualizarCarrinho() {
 }
 
 // ========== DADOS DOS PLANOS ==========
+// ========== DADOS DOS PLANOS (ATUALIZADO 2025) ==========
 const planos = {
   "start": {
-    titulo: "Plano Start+ — Primeiro Resultado",
+    titulo: "Plano Start+ — Presença Profissional",
+    preco: "R$ 500",
     promessa: `
-      <p>Você não quer só um site. Quer <strong>ser encontrado no Google e atrair clientes reais</strong> — mesmo sendo autônomo(a) ou com orçamento limitado.</p>
+      <p>Você precisa <strong>ter presença online profissional</strong> para não perder clientes — mesmo começando agora.</p>
       <ul>
-        <li>Seu site <strong>nasce indexado</strong> — em poucos dias, você aparece nas buscas locais.</li>
-        <li>Você <strong>atualiza tudo sozinho(a)</strong> — com treinamento prático e manual em vídeo.</li>
-        <li>Nada de layout quebrado no celular — seu site <strong>funciona perfeitamente em todos os dispositivos</strong>.</li>
-        <li>Seus visitantes viram clientes: <strong>WhatsApp estratégico + formulário de contato</strong> já configurados.</li>
-        <li>Você recebe <strong>domínio, hospedagem, e-mail e segurança</strong> — tudo pronto, sem burocracia.</li>
-        <li>Seu site é <strong>uma porta de entrada estratégica</strong> — não um “site morto”.</li>
+        <li>Seu negócio <strong>passa confiança</strong> quando alguém pesquisa por você.</li>
+        <li>O cliente <strong>te encontra, entende o que você faz e entra em contato</strong>.</li>
+        <li>Seu site funciona bem no celular e carrega rápido.</li>
       </ul>
     `,
     detalhes: `
-      <h4>O que está incluído:</h4>
+      <h4>O que você recebe:</h4>
       <ul>
-        <li>One Page personalizável (Sobre, Serviços, Portfólio, Depoimentos, Contato, Localização, Horários)</li>
-        <li>Design alinhado à identidade da sua marca (cores, fontes, estilo)</li>
-        <li>Domínio + hospedagem anuais inclusos</li>
-        <li>Até 20 fotos/vídeos otimizados</li>
-        <li>Treinamento básico + documentação + manual em vídeo</li>
-        <li>Totalmente responsivo (mobile-first)</li>
-        <li>Carregamento rápido (imagens comprimidas + código leve)</li>
-        <li>Indexação no Google + Search Console configurado</li>
-        <li>Títulos, descrições e palavras-chave estratégicas</li>
-        <li>Estrutura mínima de conversão (CTA claro)</li>
-        <li>Botão de WhatsApp com mensagem pré-definida</li>
-        <li>Formulário simples de contato</li>
-        <li>Google Analytics (GA4) configurado</li>
-        <li>SSL/HTTPS ativo + proteção contra XSS, clickjacking e arquivos sensíveis</li>
-        <li>Estrutura preparada para upgrades futuros</li>
-        <li>7 dias de ajustes após entrega</li>
+        <li>Site One Page profissional (Sobre, Serviços, Contato)</li>
+        <li>Design limpo e moderno (padrão 2025)</li>
+        <li>Totalmente responsivo (celular, tablet e desktop)</li>
+        <li>Botão de WhatsApp funcional</li>
+        <li>Formulário de contato simples</li>
+        <li>Domínio + hospedagem por 1 ano</li>
+        <li>SSL (site seguro – HTTPS)</li>
+        <li>Configuração básica de SEO (títulos e descrições)</li>
+        <li>Indexação no Google</li>
+        <li>Instagram Feed integrado</li>
         <li>Entrega em até 14 dias úteis</li>
+        <li>7 dias para ajustes após entrega</li>
       </ul>
-      <h4 style="margin-top: 1.5rem;">Processo:</h4>
-      <p><strong>1ª reunião (briefing):</strong> Entendemos sua marca, serviços, definimos textos, criamos contas no Google, enviamos contrato e alinhamos prazos.</p>
-      <p><strong>2ª reunião (entrega):</strong> Apresentamos o site, entregamos senhas, e-mails, manuais e fazemos treinamento prático.</p>
-    `
+      <h4>Diferencial:</h4>
+      <p>Site pronto para uso real — não é modelo genérico abandonado depois da entrega.</p>
+    `,
   },
+  
+  
   "essencial": {
-    titulo: "Plano Essencial — Autoridade Local",
+    titulo: "Plano Essencial — Geração de Clientes",
+    preco: "A partir de R$ 1.000",
     promessa: `
-      <p>Você quer <strong>ser a referência do seu bairro</strong> — não só mais um negócio no mapa. Com este plano, seu negócio aparece no <strong>topo do Google e no Google Maps</strong>, e seus visitantes viram clientes fiéis.</p>
+      <p>Você já tem negócio rodando e precisa <strong>atrair clientes de forma consistente</strong> — não apenas existir online.</p>
       <ul>
-        <li>Você <strong>domina o SEO local</strong> — com Google Meu Negócio 100% otimizado.</li>
-        <li>Seu site <strong>conversa e vende</strong> — com textos estratégicos escritos para seu público.</li>
-        <li>Você parece <strong>profissional e confiável</strong> — com até 5 páginas e estrutura institucional.</li>
-        <li>Está <strong>pronto para anúncios</strong> — sem precisar refazer o site depois.</li>
-        <li>Você tem <strong>e-mail profissional</strong> (ex: contato@seudominio.com.br) — que transmite credibilidade imediata.</li>
-        <li>Seus clientes <strong>encontram você no Maps, veem avaliações e agendam pelo WhatsApp</strong> — tudo integrado.</li>
+        <li>Seu site <strong>ajuda o cliente a decidir por você</strong>.</li>
+        <li>Você aparece melhor nas buscas locais.</li>
+        <li>Está pronto para anúncios e crescimento.</li>
       </ul>
     `,
     detalhes: `
-      <h4>O que está incluído (tudo do Start+ +):</h4>
+      <h4>O que você recebe (tudo do Start+ +):</h4>
       <ul>
-        <li>Site institucional com até 5 páginas</li>
-        <li>Copywriting estratégico (textos pensados para venda)</li>
-        <li>SEO Local completo + configuração do Google Meu Negócio</li>
-        <li>Google Maps integrado</li>
-        <li>CTA estratégico em cada página</li>
-        <li>E-mail corporativo vinculado ao domínio</li>
-        <li>Estrutura pronta para anúncios (Facebook Pixel, Google Tag Manager)</li>
-        <li>Integração com redes sociais</li>
-        <li>Hospedagem média inclusa (até 500 acessos simultâneos)</li>
-        <li>Entrega em 20 dias úteis</li>
-        <li>1 mês de Manutenção Start incluso</li>
+        <li>Site institucional com 5 páginas</li>
+        <li>Textos estratégicos focados em conversão</li>
+        <li>SEO local estruturado</li>
+        <li>Google Meu Negócio configurado ou otimizado</li>
+        <li>Integração com Google Maps</li>
+        <li>CTAs estratégicos em todas as páginas</li>
+        <li>E-mail profissional com domínio próprio</li>
+        <li>Estrutura pronta para anúncios (Meta e Google)</li>
+        <li>Hospedagem mais robusta</li>
+        <li>Área administrativa/li>
+        <li>Entrega em até 20 dias úteis</li>
+        <li>30 dias de suporte pós-entrega</li>
       </ul>
-      <h4 style="margin-top: 1.5rem;">Ferramentas usadas:</h4>
-      <p>Google Search Console, Google Analytics (GA4), PageSpeed Insights, Mobile-Friendly Test, Schema Markup para SEO local, SSL, compressão de imagens, proteções de segurança.</p>
-      <h4 style="margin-top: 1rem;">Processo:</h4>
-      <p>Mesmo do Start+, com foco extra em autoridade local, Google Meu Negócio e conversão.</p>
+      <h4>Diferencial:</h4>
+      <p>Site pensado para vender e escalar — não apenas “bonito”.</p>
     `
   }
 };
