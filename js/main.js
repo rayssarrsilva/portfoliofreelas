@@ -36,35 +36,53 @@ const planos = {
     titulo: "Plano Start+ — Presença Profissional",
     preco: "R$ 500",
     promessa: `
-      <p>Você precisa <strong>ter presença online profissional</strong> para não perder clientes — mesmo começando agora.</p>
+      <p>Ideal para quem precisa de uma <strong>presença online profissional, clara e confiável</strong>, sem complexidade.</p>
       <ul>
-        <li>Seu negócio <strong>passa confiança</strong> quando alguém pesquisa por você.</li>
-        <li>O cliente <strong>te encontra, entende o que você faz e entra em contato</strong>.</li>
-        <li>Seu site funciona bem no celular e carrega rápido.</li>
+        <li>Seu negócio ou instituição <strong>passa credibilidade</strong> desde o primeiro acesso.</li>
+        <li>O visitante <strong>entende rapidamente quem você é, o que oferece e como entrar em contato</strong>.</li>
+        <li>Site moderno, rápido e adaptado para qualquer dispositivo.</li>
       </ul>
     `,
     detalhes: `
       <h4>O que você recebe:</h4>
       <ul>
-        <li>Site One Page profissional (Sobre, Serviços, Contato)</li>
-        <li>Design limpo e moderno (padrão 2025)</li>
-        <li>Totalmente responsivo (celular, tablet e desktop)</li>
-        <li>Botão de WhatsApp funcional</li>
-        <li>Formulário de contato simples</li>
-        <li>Domínio + hospedagem por 1 ano</li>
-        <li>SSL (site seguro – HTTPS)</li>
-        <li>Configuração básica de SEO (títulos e descrições)</li>
-        <li>Indexação no Google</li>
-        <li>Instagram Feed integrado</li>
+        <li>Site One Page profissional e institucional</li>
+        <li>Estrutura flexível por seções (ex: apresentação, serviços, diferenciais, contato)</li>
+        <li>Design moderno, limpo e profissional (padrão 2026+)</li>
+        <li>Identidade visual consistente do topo ao rodapé</li>
+        <li>Totalmente responsivo (mobile, tablet e desktop)</li>
+        <li>Botão de contato via WhatsApp funcional</li>
+        <li>Ícones padronizados (Google Fonts)</li>
+        <li>Animações sutis e elegantes por seção (scroll profissional)</li>
+        <li>Feed de Instagram fictício integrado (visual e institucional)</li>
+        <li>Rodapé profissional com:
+          <ul>
+            <li>Direitos reservados</li>
+            <li>Desenvolvido por Real Result Solutions</li>
+            <li>Aviso de LGPD</li>
+          </ul>
+        </li>
         <li>Entrega em até 14 dias úteis</li>
         <li>7 dias para ajustes após entrega</li>
       </ul>
+
+      <h4>Itens aplicados após publicação:</h4>
+      <ul>
+        <li>Configuração básica de SEO (títulos e meta descriptions)</li>
+        <li>Indexação no Google</li>
+      </ul>
+
+      <h4>Itens condicionais:</h4>
+      <ul>
+        <li>Domínio + hospedagem por 1 ano (conforme plano contratado)</li>
+        <li>SSL (HTTPS) — incluso junto à hospedagem</li>
+      </ul>
+
       <h4>Diferencial:</h4>
-      <p>Site pronto para uso real — não é modelo genérico abandonado depois da entrega.</p>
+      <p>Site institucional pronto para uso real, com padrão visual e técnico profissional — sem soluções genéricas ou amadoras.</p>
     `,
   },
-  
-  
+
   "essencial": {
     titulo: "Plano Essencial — Geração de Clientes",
     preco: "A partir de R$ 1.000",
@@ -88,7 +106,7 @@ const planos = {
         <li>E-mail profissional com domínio próprio</li>
         <li>Estrutura pronta para anúncios (Meta e Google)</li>
         <li>Hospedagem mais robusta</li>
-        <li>Área administrativa/li>
+        <li>Área administrativa</li>
         <li>Entrega em até 20 dias úteis</li>
         <li>30 dias de suporte pós-entrega</li>
       </ul>
