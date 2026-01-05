@@ -54,7 +54,7 @@ const planos = {
         <li>Botão de contato via WhatsApp funcional</li>
         <li>Ícones padronizados (Google Fonts)</li>
         <li>Animações sutis e elegantes por seção (scroll profissional)</li>
-        <li>Feed de Instagram fictício integrado (visual e institucional)</li>
+        <li>Feed de Instagram integrado </li>
         <li>Rodapé profissional com:
           <ul>
             <li>Direitos reservados</li>
