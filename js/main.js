@@ -1,286 +1,165 @@
-// ========== CARRINHO VISÍVEL ==========
-let carrinho = {
-  plano: null,
-  hospedagem: null,
-  manutencao: null
-};
+// Carrinho Global
+let cart = [];
+let cartCount = 0;
 
-// Atualiza a exibição do carrinho
-function atualizarCarrinho() {
-  const container = document.getElementById('itens-carrinho');
-  const miniCarrinho = document.getElementById('mini-carrinho');
-  const btnFinalizar = document.getElementById('finalizar-pedido');
-  const btnEnviar = document.getElementById('enviar-pedido');
-
-  const itens = [];
-  if (carrinho.plano) itens.push(`Plano: ${carrinho.plano}`);
-  if (carrinho.hospedagem) itens.push(`Hospedagem: ${carrinho.hospedagem}`);
-  if (carrinho.manutencao) itens.push(`Manutenção: ${carrinho.manutencao}`);
-
-  if (itens.length > 0) {
-    container.innerHTML = '<li>' + itens.join('</li><li>') + '</li>';
-    miniCarrinho.style.display = 'block';
-    if (btnEnviar) btnEnviar.style.display = 'block';
-    if (btnFinalizar) btnFinalizar.style.display = 'block';
-  } else {
-    miniCarrinho.style.display = 'none';
-    if (btnEnviar) btnEnviar.style.display = 'none';
-    if (btnFinalizar) btnFinalizar.style.display = 'none';
-  }
+// Função para adicionar ao carrinho
+function addToCart(planName, price) {
+  const item = {
+    id: Date.now(),
+    name: planName,
+    price: price
+  };
+  cart.push(item);
+  updateCart();
+  showCartModal();
 }
 
-// ========== DADOS DOS PLANOS ==========
-// ========== DADOS DOS PLANOS (ATUALIZADO 2025) ==========
-const planos = {
-  "start": {
-    titulo: "Plano Start+ — Presença Profissional",
-    preco: "R$ 500",
-    promessa: `
-      <p>Ideal para quem precisa de uma <strong>presença online profissional, clara e confiável</strong>, sem complexidade.</p>
-      <ul>
-        <li>Seu negócio ou instituição <strong>passa credibilidade</strong> desde o primeiro acesso.</li>
-        <li>O visitante <strong>entende rapidamente quem você é, o que oferece e como entrar em contato</strong>.</li>
-        <li>Site moderno, rápido e adaptado para qualquer dispositivo.</li>
-      </ul>
-    `,
-    detalhes: `
-      <h4>O que você recebe:</h4>
-      <ul>
-        <li>Site One Page profissional e institucional</li>
-        <li>Estrutura flexível por seções (ex: apresentação, serviços, diferenciais, contato)</li>
-        <li>Design moderno, limpo e profissional (padrão 2026+)</li>
-        <li>Identidade visual consistente do topo ao rodapé</li>
-        <li>Totalmente responsivo (mobile, tablet e desktop)</li>
-        <li>Botão de contato via WhatsApp funcional</li>
-        <li>Ícones padronizados (Google Fonts)</li>
-        <li>Animações sutis e elegantes por seção (scroll profissional)</li>
-        <li>Feed de Instagram integrado </li>
-        <li>Rodapé profissional com:
-          <ul>
-            <li>Direitos reservados</li>
-            <li>Desenvolvido por Real Result Solutions</li>
-            <li>Aviso de LGPD</li>
-          </ul>
-        </li>
-        <li>Entrega em até 14 dias úteis</li>
-        <li>7 dias para ajustes após entrega</li>
-      </ul>
+// Atualiza o carrinho visualmente
+function updateCart() {
+  cartCount = cart.length;
+  document.getElementById('cart-count').textContent = cartCount;
 
-      <h4>Itens aplicados após publicação:</h4>
-      <ul>
-        <li>Configuração básica de SEO (títulos e meta descriptions)</li>
-        <li>Indexação no Google</li>
-      </ul>
+  const cartItemsDiv = document.getElementById('cartItems');
+  cartItemsDiv.innerHTML = '';
 
-      <h4>Itens condicionais:</h4>
-      <ul>
-        <li>Domínio + hospedagem por 1 ano (conforme plano contratado)</li>
-        <li>SSL (HTTPS) — incluso junto à hospedagem</li>
-      </ul>
+  let total = 0;
 
-      <h4>Diferencial:</h4>
-      <p>Site institucional pronto para uso real, com padrão visual e técnico profissional — sem soluções genéricas ou amadoras.</p>
-    `,
-  },
+  cart.forEach(item => {
+    total += item.price;
+    const itemDiv = document.createElement('div');
+    itemDiv.className = 'cart-item';
+    itemDiv.innerHTML = `
+      <span>${item.name}</span>
+      <span>R$ ${item.price.toFixed(2)}</span>
+      <span class="cart-item-remove" onclick="removeFromCart(${item.id})">×</span>
+    `;
+    cartItemsDiv.appendChild(itemDiv);
+  });
 
-  "essencial": {
-    titulo: "Plano Essencial — Geração de Clientes",
-    preco: "A partir de R$ 1.000",
-    promessa: `
-      <p>Você já tem negócio rodando e precisa <strong>atrair clientes de forma consistente</strong> — não apenas existir online.</p>
-      <ul>
-        <li>Seu site <strong>ajuda o cliente a decidir por você</strong>.</li>
-        <li>Você aparece melhor nas buscas locais.</li>
-        <li>Está pronto para anúncios e crescimento.</li>
-      </ul>
-    `,
-    detalhes: `
-      <h4>O que você recebe (tudo do Start+ +):</h4>
-      <ul>
-        <li>Site institucional com 5 páginas</li>
-        <li>Textos estratégicos focados em conversão</li>
-        <li>SEO local estruturado</li>
-        <li>Google Meu Negócio configurado ou otimizado</li>
-        <li>Integração com Google Maps</li>
-        <li>CTAs estratégicos em todas as páginas</li>
-        <li>E-mail profissional com domínio próprio</li>
-        <li>Estrutura pronta para anúncios (Meta e Google)</li>
-        <li>Hospedagem mais robusta</li>
-        <li>Área administrativa</li>
-        <li>Entrega em até 20 dias úteis</li>
-        <li>30 dias de suporte pós-entrega</li>
-      </ul>
-      <h4>Diferencial:</h4>
-      <p>Site pensado para vender e escalar — não apenas “bonito”.</p>
-    `
-  }
-};
+  document.getElementById('cartTotal').textContent = `R$ ${total.toFixed(2)}`;
+}
 
-// ========== MODAL DE PLANOS ==========
-document.querySelectorAll('.open-modal').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const planoId = btn.dataset.plano;
-    const plano = planos[planoId];
-    if (!plano) return;
+// Remove item do carrinho
+function removeFromCart(id) {
+  cart = cart.filter(item => item.id !== id);
+  updateCart();
+}
 
-    document.getElementById('modal-titulo').textContent = plano.titulo;
-    document.getElementById('tab-promessa').innerHTML = plano.promessa;
-    document.getElementById('tab-detalhes').innerHTML = plano.detalhes;
+// Limpa o carrinho
+function clearCart() {
+  cart = [];
+  updateCart();
+}
 
-    const btnAdicionar = document.getElementById('botao-quero-plano');
-    if (btnAdicionar) {
-      btnAdicionar.dataset.plano = planoId;
-      btnAdicionar.textContent = `Adicionar ${planoId === 'start' ? 'Start+' : 'Essencial'} ao carrinho`;
+// Mostra o modal do carrinho
+function showCartModal() {
+  document.getElementById('cartModal').style.display = 'flex';
+}
+
+// Fecha o modal do carrinho
+document.addEventListener('DOMContentLoaded', function() {
+  const closeButtons = document.querySelectorAll('.close, .close-popup');
+  closeButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+      this.closest('.modal, .popup').style.display = 'none';
+    });
+  });
+
+  // Fecha ao clicar fora
+  window.addEventListener('click', function(event) {
+    if (event.target.classList.contains('modal') || event.target.classList.contains('popup')) {
+      event.target.style.display = 'none';
     }
-
-    document.getElementById('modal-plano').style.display = 'flex';
-    document.getElementById('modal-overlay').style.display = 'block';
-    document.body.style.overflow = 'hidden';
   });
-});
 
-document.addEventListener('click', function(e) {
-  if (e.target.classList.contains('tab-btn')) {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
-    e.target.classList.add('active');
-    const tabId = e.target.dataset.tab;
-    document.getElementById(`tab-${tabId}`).classList.add('active');
-  }
-});
-
-document.querySelectorAll('.close-modal, #modal-overlay').forEach(el => {
-  el.addEventListener('click', () => {
-    document.getElementById('modal-plano').style.display = 'none';
-    document.getElementById('modal-overlay').style.display = 'none';
-    document.body.style.overflow = 'auto';
-  });
-});
-
-// ========== ADICIONAR PLANO DO MODAL ==========
-document.getElementById('botao-quero-plano')?.addEventListener('click', function() {
-  const planoId = this.dataset.plano;
-  if (!planoId) return;
-  const nome = planoId === 'start' ? 'Start+' : 'Essencial';
-  carrinho.plano = nome;
-  document.getElementById('modal-plano').style.display = 'none';
-  document.getElementById('modal-overlay').style.display = 'none';
-  document.body.style.overflow = 'auto';
-  atualizarCarrinho();
-});
-
-// ========== ADICIONAR / REMOVER ITENS ==========
-function toggleItem(tipo, valor) {
-  if (carrinho[tipo] === valor) {
-    carrinho[tipo] = null;
-  } else {
-    carrinho[tipo] = valor;
-  }
-  atualizarCarrinho();
-}
-
-document.querySelectorAll('.add-to-cart').forEach(btn => {
-  btn.addEventListener('click', function() {
-    const tipo = this.dataset.type;
-    const valor = this.dataset.value;
-    toggleItem(tipo, valor);
-  });
-});
-
-// ========== FINALIZAR PEDIDO ==========
-function enviarCarrinho() {
-  let msg = "Olá! Gostaria de fechar um pedido com os seguintes itens:\n\n";
-  if (carrinho.plano) msg += `• Plano: ${carrinho.plano}\n`;
-  if (carrinho.hospedagem) msg += `• Hospedagem: ${carrinho.hospedagem}\n`;
-  if (carrinho.manutencao) msg += `• Manutenção: ${carrinho.manutencao}\n`;
-  msg += "\nPor favor, podemos agendar uma reunião de briefing para alinhar detalhes?";
-  const encoded = encodeURIComponent(msg);
-  window.open(`https://wa.me/34991282814?text=${encoded}`, '_blank');
-}
-
-document.getElementById('finalizar-pedido')?.addEventListener('click', enviarCarrinho);
-document.getElementById('enviar-pedido')?.addEventListener('click', enviarCarrinho);
-
-// ========== TRANSIÇÕES DE ALTA QUALIDADE ENTRE SEÇÕES ==========
-document.addEventListener('DOMContentLoaded', () => {
-  const sections = [
-    { selector: '.hero',        effect: 'fade' },
-    { selector: '.sobre',       effect: 'slide-left' },
-    { selector: '.garantias',   effect: 'slide-right' },
-    { selector: '.diferenciais', effect: 'rotate' },
-    { selector: '#planos',      effect: 'zoom' },
-    { selector: '#hospedagem',  effect: 'zoom' },
-    { selector: '#manutencao',  effect: 'zoom' },
-    { selector: '.contato',     effect: 'slide-up' }
-  ];
-
+  // Animação ao rolar
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        let matched = null;
-        for (const s of sections) {
-          if (
-            (s.selector.startsWith('#') && entry.target.id === s.selector.slice(1)) ||
-            (s.selector.startsWith('.') && entry.target.classList.contains(s.selector.slice(1)))
-          ) {
-            matched = s;
-            break;
-          }
-        }
-        if (matched) {
-          animateSection(entry.target, matched.effect);
-          observer.unobserve(entry.target);
-        }
+        entry.target.classList.add('visible');
       }
     });
-  }, {
-    threshold: 0.1,
-    rootMargin: "0px 0px -100px 0px"
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    observer.observe(el);
   });
 
-  sections.forEach(({ selector }) => {
-    const el = document.querySelector(selector);
-    if (el) observer.observe(el);
+  // Header scroll effect
+  window.addEventListener('scroll', () => {
+    const header = document.getElementById('header');
+    if (window.scrollY > 100) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
   });
 
-  // Anima o hero imediatamente
-  const hero = document.querySelector('.hero');
-  if (hero) {
-    setTimeout(() => animateSection(hero, 'fade'), 300);
+  // Smooth Scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // Pop-up de desconto após 30 segundos
+  setTimeout(() => {
+    const popup = document.getElementById('discountPopup');
+    if (popup) popup.style.display = 'flex';
+  }, 30000);
+
+  // Copiar código
+  window.copyCode = function() {
+    const code = document.getElementById('discountCode').textContent;
+    navigator.clipboard.writeText(code).then(() => {
+      alert('Código copiado com sucesso!');
+    }).catch(err => {
+      console.error('Erro ao copiar:', err);
+    });
+  };
+
+  // Mostrar contrato
+  window.showContract = function() {
+    document.getElementById('contractModal').style.display = 'flex';
+  };
+
+  // Download contrato
+  window.downloadContract = function() {
+    const contractText = document.getElementById('contractText').textContent;
+    const blob = new Blob([contractText], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'contrato_rnr_solutions.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
+  // Finalizar compra
+  window.checkout = function() {
+    alert('Obrigado pela compra! Em breve entraremos em contato para finalizar.');
+    clearCart();
+    document.getElementById('cartModal').style.display = 'none';
+  };
+
+  // Formulário de contato
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Mensagem enviada com sucesso! Entraremos em contato em até 24h.');
+      this.reset();
+    });
   }
-});
-
-function animateSection(el, type) {
-  el.style.transition = 'opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-  el.style.opacity = '1';
-  
-  switch (type) {
-    case 'fade':
-      el.style.transform = 'translateY(0)';
-      break;
-    case 'slide-left':
-      el.style.transform = 'translateX(0)';
-      break;
-    case 'slide-right':
-      el.style.transform = 'translateX(0)';
-      break;
-    case 'slide-up':
-      el.style.transform = 'translateY(0)';
-      break;
-    case 'rotate':
-      el.style.transform = 'rotateY(0) scale(1)';
-      break;
-    case 'zoom':
-      el.style.transform = 'scale(1)';
-      break;
-  }
-}
-document.querySelectorAll('.tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-
-    tab.classList.add('active');
-    document.getElementById(`tab-${tab.dataset.tab}`).classList.add('active');
-  });
 });
