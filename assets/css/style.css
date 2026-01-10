@@ -1,26 +1,63 @@
 * {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  padding: 20;
+  box-sizing: border-box
 }
 
+/* Fundo editorial com imagens ultra sutis */
 body {
   font-family: 'Inter', sans-serif;
-  background: #f7f7f5;
   color: #111;
+  background-color: #f7f7f5;
+  position: relative;
+  overflow-x: hidden;
 }
 
+/* Camada de imagens laterais */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    url("https://images.unsplash.com/photo-1556761175-4b46a572b786"),
+    url("https://images.unsplash.com/photo-1529333166437-7750a6dd5a70");
+  background-position:
+    left center,
+    right center;
+  background-size:
+    40% auto,
+    40% auto;
+  background-repeat: no-repeat;
+  opacity: 0.08; /* visível mas extremamente leve */
+  filter: grayscale(100%) contrast(90%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Tipografia */
 h1, h2, h3 {
   font-family: 'DM Serif Display', serif;
 }
 
+/* Containers centrais */
+.topbar,
+.hero,
+.plans,
+footer {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Topbar */
 .topbar {
   display: flex;
   justify-content: space-between;
   padding: 24px 40px;
   position: sticky;
   top: 0;
-  background: #f7f7f5;
+  background: rgba(247,247,245,0.97);
+  backdrop-filter: blur(6px);
+  max-width: 1200px;
 }
 
 nav a {
@@ -30,6 +67,7 @@ nav a {
   font-size: 14px;
 }
 
+/* Hero */
 .hero {
   padding: 120px 40px 80px;
   max-width: 900px;
@@ -54,6 +92,7 @@ button {
   cursor: pointer;
 }
 
+/* Planos */
 .plans {
   padding: 80px 40px;
   max-width: 900px;
@@ -104,23 +143,28 @@ button {
   margin-bottom: 8px;
 }
 
+/* Contato */
 .contact {
   padding: 80px 40px;
-  background: #eee;
+  background: rgba(238,238,238,0.96);
+  backdrop-filter: blur(2px);
 }
 
+/* Footer */
 footer {
   padding: 40px;
   font-size: 13px;
   color: #666;
+  max-width: 900px;
 }
-/* Card de citações – estilo editorial */
+
+/* Card de citações */
 .quote-card {
   position: relative;
-  margin: 70px 0 70px;
+  margin: 70px auto;
   padding: 36px 70px;
-  background: #f7f7f5;
-  max-width: 120%;
+  background: rgba(247,247,245,0.97);
+  max-width: 900px;
   min-height: 90px;
 }
 
@@ -132,14 +176,8 @@ footer {
   height: 2px;
   width: 100%;
   background: #111;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
 }
 
-.quote-card:after {
-  transform: scaleX(1);
-}
 /* Citação */
 .quote {
   position: absolute;
@@ -153,7 +191,6 @@ footer {
   max-width: 700px;
 }
 
-/* Ativa */
 .quote.active {
   opacity: 1;
   transform: translateY(0);

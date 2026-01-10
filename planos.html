@@ -15,7 +15,7 @@
   <nav>
     <a href="javascript:history.back()">Voltar</a>
     <a href="index.html">Início</a>
-    <a href="planos.html">Planos</a>
+    <a href="planos.html" aria-current="page">Planos</a>
     <a href="metodologia.html">Metodologia</a>
     <a href="manutencao.html">Manutenção</a>
     <a href="hospedagem.html">Hospedagem</a>
@@ -24,32 +24,181 @@
 </header>
 
 <section class="plans">
-  <h1>Planos de Desenvolvimento</h1>
-
+  <h1>Planos de desenvolvimento</h1>
   <p>
-    Nossos planos foram estruturados para atender diferentes níveis de maturidade
-    digital, sempre com foco em SEO, performance e crescimento sustentável.
+    Estruturamos nossos planos para acelerar resultados reais, equilibrando estratégia, SEO e performance.
+    Cada entrega é pensada para crescimento sustentável e medível.
   </p>
 
-  <div class="plan">
+  <!-- START+ -->
+  <article class="plan" id="start">
     <div class="plan-head">
       <h2>Plano Start+ — Primeiro Resultado</h2>
-      <a class="toggle" href="start.html">Ver detalhes</a>
+      <button class="toggle" data-target="#start-details" aria-expanded="false">Ver detalhes</button>
     </div>
-    <p class="plan-desc">
-      Plano de entrada estratégico para autônomos e pequenos empreendedores.
-    </p>
-  </div>
 
-  <div class="plan">
-    <div class="plan-head">
-      <h2>Plano Essencial — Autoridade Local</h2>
-      <a class="toggle" href="essencial.html">Ver detalhes</a>
-    </div>
     <p class="plan-desc">
-      O plano que mais vende, ideal para negócios físicos que precisam aparecer no Google.
+      Entrada estratégica para autônomos e pequenos empreendedores. Não é “só um site”: é um ponto de partida otimizado para converter.
     </p>
-  </div>
+
+    <div class="meta">
+      <span class="badge badge-green">Mais acessível</span>
+      <span class="badge">Entrega em até 15 dias úteis</span>
+    </div>
+
+    <div class="pricing">
+      <strong class="price" data-price="600">R$ 600</strong>
+      <span class="installments" data-installments="3" data-installment-value="212,00">Até 3x de R$212,00</span>
+    </div>
+
+    <div class="audience">
+      <strong>Público:</strong>
+      <p>Autônomos e pequenos empreendedores com baixo orçamento inicial: maquiadores, manicures, barbeiros, cabeleireiros, esteticistas, boleiras, freelancers e prestadores de serviço locais.</p>
+    </div>
+
+    <div class="details" id="start-details" aria-hidden="true">
+      <div class="details-col">
+        <h3>O que está incluído</h3>
+        <ul class="bullets">
+          <li>One Page personalizável: sobre, serviços/produtos, portfólio, depoimentos, contato, localização, horário.</li>
+          <li>Google meu negocio</li>
+          <li>Google PageSpeed Insights para ganho de velocidade.</li>
+          <li>Google Search Console para visibilidade e indexação.</li>
+          <li>Design fiel à identidade da marca.</li>
+          <li>Domínio e hospedagem anual.</li>
+          <li>Totalmente responsivo (mobile first).</li>
+          <li>Vídeo de treinamento para editar conteúdo, imagens e cores.</li>
+          <li>Documentação para futuras mudanças.</li>
+          <li>Certificado SSL/HTTPS ativo.</li>
+          <li>Proteções contra XSS, clickjacking e bloqueio de arquivos sensíveis.</li>
+          <li>Até 20 fotos/vídeos otimizados.</li>
+          <li>1 mês de manutenção simples.</li>
+          <li>Relatório de desempenho, acessibilidade, melhores práticas e SEO acima de 90 no PageSpeed (mobile e desktop).</li>
+        </ul>
+      </div>
+
+      <div class="details-col">
+        <h3>Processo e prazos</h3>
+        <h4>Primeira reunião (briefing)</h4>
+        <ul class="bullets">
+          <li>Identidade da marca, serviços/produtos e ativos (fotos/vídeos).</li>
+          <li>Diretrizes de design e criação de contas nas plataformas.</li>
+          <li>Especificações e objetivos por seção/página.</li>
+          <li>Q&A e apresentação do escopo final.</li>
+          <li>Referências de layout/estilo.</li>
+          <li>Envio de contrato e assinatura antes do início.</li>
+          <li>Definição de pagamento (à vista, parcelado ou 50/50).</li>
+          <li>Alinhamento de prazos e ajustes.</li>
+        </ul>
+
+        <h4>Segunda reunião (entrega/treinamento)</h4>
+        <ul class="bullets">
+          <li>Apresentação do site pronto.</li>
+          <li>Entrega de e-mail, senhas, documentação e vídeo/guia de uso.</li>
+          <li>Dúvidas finais e alinhamento de ajustes (até 7 dias).</li>
+          <li>Segunda parte do pagamento.</li>
+        </ul>
+      </div>
+
+      <div class="cta-row">
+        <button class="btn primary" data-magnetic data-plan="Start+">Solicitar proposta</button>
+        <button class="btn ghost" data-copy="#start">Copiar detalhes</button>
+      </div>
+
+      <div class="scorebar" aria-label="PageSpeed alvo">
+        <span class="label">PageSpeed alvo</span>
+        <div class="bar">
+          <div class="fill" data-target="92"></div>
+        </div>
+        <span class="value">92+</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- ESSENCIAL -->
+  <article class="plan" id="essencial">
+    <div class="plan-head">
+      <h2>Plano Essencial — Autoridade local</h2>
+      <button class="toggle" data-target="#essencial-details" aria-expanded="false">Ver detalhes</button>
+    </div>
+
+    <p class="plan-desc">
+      O plano que mais vende para negócios físicos: posiciona sua marca como referência local e facilita aparecer no Google.
+    </p>
+
+    <div class="meta">
+      <span class="badge badge-blue">Mais vendido</span>
+      <span class="badge">Entrega em até 30 dias úteis</span>
+    </div>
+
+    <div class="pricing">
+      <strong class="price" data-price="4000">R$ 3.000</strong>
+      <span class="installments" data-installments="3" data-installment-value="280,00">Até 12x de R$280,00</span>
+      <span class="installments note"> Inclui todos os recursos do Start+</span>
+    </div>
+
+    <div class="audience">
+      <strong>Público:</strong>
+      <p>Barbearias, salões, pet shops, estúdios, consultórios e pequenos negócios físicos com foco em presença local.</p>
+    </div>
+
+    <div class="details" id="essencial-details" aria-hidden="true">
+      <div class="details-col">
+        <h3>O que está incluído</h3>
+        <ul class="bullets">
+          <li>Tudo do Start+.</li>
+          <li>Google Analytics para entender comportamento e ajustar conteúdos.</li>
+          <li>Site institucional com até 5 páginas.</li>
+          <li>Copywriting estratégico focado em conversão.</li>
+          <li>SEO local completo (Google Meu Negócio).</li>
+          <li>Domínio e hospedagem anual (renovação anual necessária).</li>
+          <li>Google Maps integrado.</li>
+          <li>CTA estratégico por página.</li>
+          <li>E-mail corporativo vinculado ao domínio.</li>
+          <li>Estrutura pronta para anúncios (Facebook Pixel, Google Tag Manager, SEO técnico).</li>
+          <li>Integração com redes sociais.</li>
+        </ul>
+
+        <div class="differentials">
+          <h4>Diferenciais</h4>
+          <ul class="checks">
+            <li>Posiciona o negócio como referência local.</li>
+            <li>Facilita aparecer no Google Maps.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="details-col">
+        <h3>Processo e prazos</h3>
+        <ul class="bullets">
+          <li>Entrega em até 30 dias úteis após confirmação/reunião.</li>
+          <li>Roadmap com marcos de conteúdo, design, SEO e publicação.</li>
+          <li>Checklist de indexação e verificação de rastreabilidade.</li>
+          <li>Configuração de medição (Analytics, Pixel e Tag Manager).</li>
+        </ul>
+      </div>
+
+      <div class="cta-row">
+        <button class="btn primary" data-magnetic data-plan="Essencial">Solicitar proposta</button>
+        <button class="btn ghost" data-copy="#essencial">Copiar detalhes</button>
+      </div>
+
+      <div class="scorebar" aria-label="PageSpeed alvo">
+        <span class="label">PageSpeed alvo</span>
+        <div class="bar">
+          <div class="fill" data-target="93"></div>
+        </div>
+        <span class="value">93+</span>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- Citações dinâmicas para autoridade e posicionamento -->
+<section class="quote-card" aria-live="polite">
+  <blockquote class="quote active">“Performance sem clareza de objetivo é sorte. Nós preferimos estratégia.”</blockquote>
+  <blockquote class="quote">“Seu site não precisa ser famoso. Ele precisa ser encontrado pelas pessoas certas.”</blockquote>
+  <blockquote class="quote">“Cada ajuste é uma hipótese testada: dados guiam nossas decisões.”</blockquote>
 </section>
 
 <footer>
@@ -58,5 +207,237 @@
   <p>© 2026 — Todos os direitos reservados</p>
 </footer>
 
+<script src="assets/js/plans.js" defer></script>
 </body>
+<script>
+  // assets/js/plans.js
+
+(() => {
+  const qs = (sel, ctx = document) => ctx.querySelector(sel);
+  const qsa = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
+
+  // 1) Acordeão com altura dinâmica e acessibilidade
+  qsa('.toggle').forEach(btn => {
+    const targetSel = btn.getAttribute('data-target');
+    const panel = qs(targetSel);
+    if (!panel) return;
+
+    btn.addEventListener('click', () => {
+      const isOpen = panel.classList.contains('open');
+      // Fecha outros
+      qsa('.details.open').forEach(d => {
+        d.style.maxHeight = '0px';
+        d.classList.remove('open');
+        d.setAttribute('aria-hidden', 'true');
+        const otherBtn = d.parentElement.querySelector('.toggle');
+        if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isOpen) {
+        panel.classList.add('open');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        panel.setAttribute('aria-hidden', 'false');
+        btn.setAttribute('aria-expanded', 'true');
+        // Stagger leve nos itens
+        qsa('.bullets li', panel).forEach((li, i) => {
+          li.style.opacity = 0;
+          li.style.transform = 'translateY(6px)';
+          setTimeout(() => {
+            li.style.transition = 'opacity .35s ease, transform .35s ease';
+            li.style.opacity = 1;
+            li.style.transform = 'translateY(0)';
+          }, 60 * i);
+        });
+        // Anima barra de PageSpeed
+        qsa('.scorebar .fill', panel).forEach(fill => animateScoreFill(fill));
+      } else {
+        panel.style.maxHeight = '0px';
+        panel.classList.remove('open');
+        panel.setAttribute('aria-hidden', 'true');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Ajusta altura ao redimensionar
+    window.addEventListener('resize', () => {
+      if (panel.classList.contains('open')) {
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // 2) Revelação suave ao rolar (planos e badges)
+  const reveal = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        reveal.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  qsa('.plan, .badge, .price, .quote-card').forEach(el => {
+    el.style.opacity = 0;
+    el.style.transform = 'translateY(8px)';
+    reveal.observe(el);
+  });
+
+  // Aplica transições quando classe 'in' chega
+  const style = document.createElement('style');
+  style.innerHTML = `
+    .plan.in, .badge.in, .price.in, .quote-card.in {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+      transition: opacity .5s ease, transform .5s ease;
+    }
+  `;
+  document.head.appendChild(style);
+
+  // 3) Contador de preço e destaque de parcelas
+  qsa('.price').forEach(el => {
+    const target = parseInt(el.dataset.price, 10);
+    if (!Number.isFinite(target)) return;
+    countUp(el, target, 900, value => {
+      el.textContent = `R$ ${formatBR(value)}`;
+    });
+  });
+
+  // 4) Copiar detalhes do plano (para enviar por WhatsApp/Email)
+  qsa('[data-copy]').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const sel = btn.getAttribute('data-copy');
+      const plan = qs(sel);
+      if (!plan) return;
+
+      const title = qs('.plan-head h2', plan)?.textContent?.trim() || 'Plano';
+      const price = qs('.price', plan)?.textContent?.trim() || '';
+      const audience = qs('.audience p', plan)?.textContent?.trim() || '';
+      const items = qsa('.details .bullets li', plan).map(li => `- ${li.textContent.trim()}`).join('\n');
+
+      const text = `${title}\n${price}\n\nPúblico:\n${audience}\n\nInclui:\n${items}`;
+      try {
+        await navigator.clipboard.writeText(text);
+        flash(btn, 'Detalhes copiados!');
+      } catch {
+        flash(btn, 'Não foi possível copiar agora.');
+      }
+    });
+  });
+
+  // 5) Botão magnético (microinteração de atração do cursor)
+  qsa('[data-magnetic]').forEach(btn => {
+    const strength = 18; // px
+    const reset = () => {
+      btn.style.transform = `translate3d(0,0,0)`;
+    };
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = `translate3d(${(x / rect.width) * strength}px, ${(y / rect.height) * strength}px, 0)`;
+    });
+    btn.addEventListener('mouseleave', () => reset());
+  });
+
+  // 6) Rotação de citações com fade
+  const quotes = qsa('.quote-card .quote');
+  let qIndex = 0;
+  setInterval(() => {
+    quotes[qIndex].classList.remove('active');
+    qIndex = (qIndex + 1) % quotes.length;
+    quotes[qIndex].classList.add('active');
+  }, 3800);
+
+  // 7) Microanimação de parcelas ao focar
+  qsa('.installments').forEach(inst => {
+    inst.addEventListener('mouseenter', () => inst.classList.add('pulse'));
+    inst.addEventListener('mouseleave', () => inst.classList.remove('pulse'));
+  });
+
+  // 8) PageSpeed progress fill
+  function animateScoreFill(fillEl) {
+    const target = parseInt(fillEl.dataset.target, 10);
+    const bar = fillEl.parentElement;
+    if (!bar) return;
+
+    fillEl.style.width = '0%';
+    let current = 0;
+    const timer = setInterval(() => {
+      current += 2;
+      fillEl.style.width = Math.min(current, target) + '%';
+      if (current >= target) clearInterval(timer);
+    }, 16);
+  }
+
+  // Utils
+  function countUp(el, target, duration, render) {
+    const start = performance.now();
+    const from = 0;
+    const raf = (t) => {
+      const progress = Math.min((t - start) / duration, 1);
+      const eased = easeOutCubic(progress);
+      const value = Math.floor(from + (target - from) * eased);
+      render(value);
+      if (progress < 1) requestAnimationFrame(raf);
+    };
+    requestAnimationFrame(raf);
+  }
+
+  function easeOutCubic(x) {
+    return 1 - Math.pow(1 - x, 3);
+  }
+
+  function formatBR(num) {
+    return num.toLocaleString('pt-BR', { minimumFractionDigits: 0 });
+  }
+
+  function flash(btn, msg) {
+    const old = btn.textContent;
+    btn.textContent = msg;
+    btn.classList.add('ok');
+    setTimeout(() => {
+      btn.textContent = old;
+      btn.classList.remove('ok');
+    }, 1600);
+  }
+
+  // 9) Melhor foco via teclado (acordeão)
+  qsa('.toggle').forEach(btn => {
+    btn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        btn.click();
+      }
+    });
+  });
+
+  // 10) Ajuste de transição para quotes
+  const quoteStyle = document.createElement('style');
+  quoteStyle.innerHTML = `
+    .quote-card .quote { opacity: 0; transform: translateY(10px); }
+    .quote-card .quote.active { opacity: 1; transform: translateY(0); transition: opacity .5s ease, transform .5s ease; }
+    .btn.ok { filter: hue-rotate(20deg) saturate(1.2); }
+    .installments.pulse { animation: pulse .6s ease; }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      40% { transform: scale(1.03); }
+      100% { transform: scale(1); }
+    }
+    .scorebar { display:flex; align-items:center; gap:10px; margin-top:18px; }
+    .scorebar .label { font-size:12px; color:#666; }
+    .scorebar .bar { flex:1; height:8px; background:#e5e5e5; border-radius:20px; overflow:hidden; }
+    .scorebar .fill { height:100%; width:0%; background:#111; transition: width .3s ease; }
+    .scorebar .value { font-size:12px; color:#333; }
+    .badge { display:inline-block; padding:4px 10px; border:1px solid #111; border-radius:999px; font-size:12px; margin-right:8px; }
+    .badge-green { background:#d9fbe0; border-color:#2e7d32; }
+    .badge-blue { background:#dceeff; border-color:#1e5aa7; }
+    .btn.primary { border:none; background:#111; color:#fff; padding:10px 18px; cursor:pointer; }
+    .btn.ghost { border:1px solid #111; background:transparent; color:#111; padding:10px 18px; cursor:pointer; }
+    .cta-row { display:flex; gap:12px; margin-top:16px; }
+    .details-col { margin-top:12px; }
+    .checks li::before { content: "✔️ "; }
+  `;
+  document.head.appendChild(quoteStyle);
+})();
+</script>
 </html>

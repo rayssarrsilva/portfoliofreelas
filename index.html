@@ -15,53 +15,24 @@
 </head>
 <body>
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const quotes = document.querySelectorAll(".quote-card .quote");
-  let quoteIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  let currentText = "";
+  document.addEventListener('DOMContentLoaded', function () {
+    const quotes = document.querySelectorAll('.quote-card .quote');
+    let current = 0;
 
-  // velocidades mínimas
-  let typingSpeed = 100;   // digitar super rápido
-  let deletingSpeed = 20;  // apagar super rápido
+    // Inicializa: mostra apenas a primeira
+    quotes.forEach((quote, index) => {
+      quote.classList.toggle('active', index === current);
+    });
 
-  function typeEffect() {
-    const fullText = quotes[quoteIndex].dataset.fulltext;
-
-    if (!isDeleting) {
-      currentText = fullText.substring(0, charIndex + 1);
-      charIndex++;
-      quotes[quoteIndex].textContent = currentText;
-
-      if (charIndex === fullText.length) {
-        isDeleting = true; // terminou → já começa apagar
-      }
-    } else {
-      currentText = fullText.substring(0, charIndex - 1);
-      charIndex--;
-      quotes[quoteIndex].textContent = currentText;
-
-      if (charIndex === 0) {
-        isDeleting = false;
-        quotes[quoteIndex].textContent = "";
-        quoteIndex = (quoteIndex + 1) % quotes.length; // próxima frase
-      }
-    }
-
-    const speed = isDeleting ? deletingSpeed : typingSpeed;
-    setTimeout(typeEffect, speed);
-  }
-
-  // guarda o texto original e limpa
-  quotes.forEach(q => {
-    q.dataset.fulltext = q.textContent.trim();
-    q.textContent = "";
+    // Troca a cada 5 segundos
+    setInterval(() => {
+      quotes[current].classList.remove('active');
+      current = (current + 1) % quotes.length;
+      quotes[current].classList.add('active');
+    }, 5000); // 5000ms = 5 segundos
   });
-
-  typeEffect();
-});
 </script>
+
 
 <header class="topbar">
   <strong>R&R</strong>
