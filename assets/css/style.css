@@ -1,63 +1,26 @@
 * {
   margin: 0;
-  padding: 20;
-  box-sizing: border-box
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Fundo editorial com imagens ultra sutis */
 body {
   font-family: 'Inter', sans-serif;
+  background: #f7f7f5;
   color: #111;
-  background-color: #f7f7f5;
-  position: relative;
-  overflow-x: hidden;
 }
 
-/* Camada de imagens laterais */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image:
-    url("https://images.unsplash.com/photo-1556761175-4b46a572b786"),
-    url("https://images.unsplash.com/photo-1529333166437-7750a6dd5a70");
-  background-position:
-    left center,
-    right center;
-  background-size:
-    40% auto,
-    40% auto;
-  background-repeat: no-repeat;
-  opacity: 0.08; /* visível mas extremamente leve */
-  filter: grayscale(100%) contrast(90%);
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* Tipografia */
 h1, h2, h3 {
   font-family: 'DM Serif Display', serif;
 }
 
-/* Containers centrais */
-.topbar,
-.hero,
-.plans,
-footer {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Topbar */
 .topbar {
   display: flex;
   justify-content: space-between;
   padding: 24px 40px;
   position: sticky;
   top: 0;
-  background: rgba(247,247,245,0.97);
-  backdrop-filter: blur(6px);
-  max-width: 1200px;
+  background: #f7f7f5;
 }
 
 nav a {
@@ -67,7 +30,6 @@ nav a {
   font-size: 14px;
 }
 
-/* Hero */
 .hero {
   padding: 120px 60px 80px; /* mais espaçamento lateral */
   width: 100%;
@@ -92,7 +54,6 @@ button {
   cursor: pointer;
 }
 
-/* Planos */
 .plans {
   padding: 80px 60px;   /* mais espaçamento lateral */
   width: 100%;          /* ocupa toda a tela */
@@ -143,19 +104,16 @@ button {
   margin-bottom: 8px;
 }
 
-/* Contato */
 .contact {
   padding: 80px 60px;  /* mais espaçamento lateral */
   background: #eee;
   width: 100%;
 }
 
-/* Footer */
 footer {
   padding: 40px 60px;  /* mais espaçamento lateral */
   font-size: 13px;
   color: #666;
-  max-width: 900px;
 }
 
 /* Card de citações – estilo editorial */
@@ -176,6 +134,9 @@ footer {
   height: 2px;
   width: 100%;
   background: #111;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
 }
 
 .quote-card:after {
@@ -195,6 +156,7 @@ footer {
   max-width: 100%;     /* agora ocupa toda a largura */
 }
 
+/* Ativa */
 .quote.active {
   opacity: 1;
   transform: translateY(0);
