@@ -7,32 +7,135 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <!-- Material Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
-
   <!-- CSS Global -->
   <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    /* Botão mais visível */
+    .hero button {
+      background: #111;
+      color: #fff;
+      padding: 16px 28px;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .3s ease, box-shadow .3s ease;
+      animation: pulse 2s infinite;
+    }
+    .hero button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(17,17,17,0.6); }
+      70% { box-shadow: 0 0 0 20px rgba(17,17,17,0); }
+      100% { box-shadow: 0 0 0 0 rgba(17,17,17,0); }
+    }
+
+    /* Palavras animáveis */
+    .word {
+      display: inline-block;
+      transition: transform .3s ease;
+      cursor: pointer;
+    }
+
+    /* Animação de queda */
+    .fall {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(-200px);
+    }
+    .fall.show {
+      opacity: 1;
+      transform: translateY(0);
+      transition: transform .6s cubic-bezier(.3,1.3,.3,1), opacity .6s ease;
+    }
+    /* Base */
+.quote-card .quote {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  transition: all .6s ease;
+}
+
+/* Efeito 1 - queda */
+.quote.fall-in {
+  animation: fallIn .8s cubic-bezier(.3,1.3,.3,1) forwards;
+}
+@keyframes fallIn {
+  from { transform: translateY(-200px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Efeito 2 - jogada */
+.quote.throw-in {
+  animation: throwIn .8s ease-out forwards;
+}
+@keyframes throwIn {
+  from { transform: translateX(-300px) rotate(-20deg); opacity: 0; }
+  to { transform: translateX(0) rotate(0); opacity: 1; }
+}
+
+/* Efeito 3 - escrita */
+.quote.type-in {
+  opacity: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #111;
+  animation: typing 2s steps(40,end), blink .8s infinite;
+}
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+@keyframes blink {
+  0%,100% { border-color: transparent; }
+  50% { border-color: #111; }
+}
+
+/* Efeito 4 - zoom */
+.quote.zoom-in {
+  animation: zoomIn .7s ease forwards;
+}
+@keyframes zoomIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.hero-buttons button {
+  background: #111;
+  color: #fff;
+  padding: 16px 28px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .3s ease, box-shadow .3s ease;
+  animation: pulse 2s infinite;
+}
+
+.hero-buttons button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(17,17,17,0.6); }
+  70% { box-shadow: 0 0 0 20px rgba(17,17,17,0); }
+  100% { box-shadow: 0 0 0 0 rgba(17,17,17,0); }
+}
+
+  </style>
 </head>
 <body>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const quotes = document.querySelectorAll('.quote-card .quote');
-    let current = 0;
-
-    // Inicializa: mostra apenas a primeira
-    quotes.forEach((quote, index) => {
-      quote.classList.toggle('active', index === current);
-    });
-
-    // Troca a cada 5 segundos
-    setInterval(() => {
-      quotes[current].classList.remove('active');
-      current = (current + 1) % quotes.length;
-      quotes[current].classList.add('active');
-    }, 5000); // 5000ms = 5 segundos
-  });
-</script>
-
 
 <header class="topbar">
   <strong>R&R</strong>
@@ -47,7 +150,7 @@
 </header>
 
 <section class="hero">
-  <h1>Sites rápidos, encontrados no Google e feitos para vender</h1>
+  <h1 id="falling-title">Sites rápidos, encontrados no Google e feitos para vender</h1>
 
   <p>
     A <strong>Real Result Solutions (R&R)</strong> é uma consultoria de desenvolvimento especializada em sites com identidade, responsividade e performance.
@@ -61,15 +164,12 @@
     <blockquote class="quote active">
       Conversão elevada graças a CTAs claros e oferta bem posicionada
     </blockquote>
-
     <blockquote class="quote">
       Experiência do usuário alta com design responsivo e navegação intuitiva
     </blockquote>
-
     <blockquote class="quote">
       SEO otimizado graças a conteúdo relevante e estrutura técnica correta
     </blockquote>
-
     <blockquote class="quote">
       Velocidade graças a CDN e hospedagem de alta performance
     </blockquote>
@@ -81,7 +181,10 @@
     consultivo e personalizado.
   </p>
 
-  <button onclick="location.href='planos.html'">Conhecer os planos</button>
+  <div class="hero-buttons">
+    <button onclick="location.href='planos.html'">Conhecer os planos</button>
+    <button onclick="location.href='contato.html'">Falar conosco</button>
+  </div>
 </section>
 
 <footer>
@@ -89,6 +192,45 @@
   <p>Consultoria especializada em desenvolvimento de sites com SEO e performance.</p>
   <p>© 2026 — Todos os direitos reservados</p>
 </footer>
+
+<script>
+    // Efeito de queda no H1
+    const title = document.getElementById('falling-title');
+    const words = title.textContent.split(' ');
+    title.innerHTML = words.map(w => `<span class="fall">${w}</span>`).join(' ');
+
+    const spans = title.querySelectorAll('.fall');
+    spans.forEach((span, i) => {
+      setTimeout(() => {
+        span.classList.add('show');
+      }, i * 200); // cada palavra cai em sequência
+    });
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const quotes = document.querySelectorAll('.quote-card .quote');
+  let current = 0;
+
+  // lista de efeitos
+  const effects = ['fall-in', 'throw-in', 'type-in', 'zoom-in'];
+
+  // inicializa
+  quotes.forEach(q => q.style.opacity = 0);
+  quotes[current].classList.add(effects[0]);
+
+  setInterval(() => {
+    // remove efeito atual
+    quotes[current].className = 'quote';
+
+    // próximo índice
+    current = (current + 1) % quotes.length;
+
+    // aplica efeito correspondente
+    const effect = effects[current % effects.length];
+    quotes[current].classList.add(effect);
+  }, 4000);
+});
+</script>
 
 </body>
 </html>
