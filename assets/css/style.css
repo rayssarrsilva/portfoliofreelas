@@ -1,19 +1,26 @@
+/* Reset completo e controle de layout base */
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  background: #f7f7f5;
+  color: #111;
+  overflow-x: hidden;
+}
+
+/* Reset universal */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-  background: #f7f7f5;
-  color: #111;
-}
-
+/* Tipografia */
 h1, h2, h3 {
   font-family: 'DM Serif Display', serif;
 }
 
+/* Topbar fixo e espaçado */
 .topbar {
   display: flex;
   justify-content: space-between;
@@ -21,8 +28,10 @@ h1, h2, h3 {
   position: sticky;
   top: 0;
   background: #f7f7f5;
+  z-index: 10;
 }
 
+/* Navegação */
 nav a {
   margin-left: 24px;
   text-decoration: none;
@@ -30,8 +39,17 @@ nav a {
   font-size: 14px;
 }
 
+/* Container centralizado */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Sessão hero */
 .hero {
-  padding: 120px 60px 80px; /* mais espaçamento lateral */
+  padding: 120px 0 80px;
   width: 100%;
 }
 
@@ -46,6 +64,7 @@ nav a {
   margin-bottom: 28px;
 }
 
+/* Botão */
 button {
   border: none;
   background: #111;
@@ -54,9 +73,10 @@ button {
   cursor: pointer;
 }
 
+/* Planos */
 .plans {
-  padding: 80px 60px;   /* mais espaçamento lateral */
-  width: 100%;          /* ocupa toda a tela */
+  padding: 80px 0;
+  width: 100%;
 }
 
 .plan {
@@ -84,6 +104,7 @@ button {
   cursor: pointer;
 }
 
+/* Detalhes */
 .details {
   max-height: 0;
   overflow: hidden;
@@ -104,28 +125,33 @@ button {
   margin-bottom: 8px;
 }
 
+/* Contato */
 .contact {
-  padding: 80px 60px;  /* mais espaçamento lateral */
+  padding: 80px 0;
   background: #eee;
   width: 100%;
 }
 
+/* Rodapé */
 footer {
-  padding: 40px 60px;  /* mais espaçamento lateral */
+  padding: 40px 0;
   font-size: 13px;
   color: #666;
+  text-align: center;
 }
 
-/* Card de citações – estilo editorial */
+/* Card de citação */
 .quote-card {
   position: relative;
-  margin: 70px auto;   /* centralizado */
+  margin: 70px auto;
   padding: 36px 70px;
   background: #f7f7f5;
-  width: 100%;         /* ocupa toda a largura */
+  width: 100%;
+  max-width: 1200px;
   min-height: 90px;
 }
 
+/* Linha decorativa */
 .quote-card::after {
   content: "";
   position: absolute;
@@ -134,18 +160,14 @@ footer {
   height: 2px;
   width: 100%;
   background: #111;
-  transform: scaleX(0);
+  transform: scaleX(1);
   transform-origin: left;
   transition: transform 0.3s ease;
 }
 
-.quote-card:after {
-  transform: scaleX(1);
-}
-
 /* Citação */
 .quote {
-  position: relative;  /* ajustado para não ficar fora do card */
+  position: relative;
   opacity: 0;
   transform: translateY(10px);
   transition: opacity .5s ease, transform .5s ease;
@@ -153,16 +175,14 @@ footer {
   font-size: 20px;
   line-height: 1.35;
   color: #111;
-  max-width: 100%;     /* agora ocupa toda a largura */
+  max-width: 100%;
 }
 
-/* Ativa */
 .quote.active {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Aspas decorativas */
 .quote::before {
   content: "“";
   position: absolute;
