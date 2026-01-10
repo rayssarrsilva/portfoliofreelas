@@ -31,12 +31,12 @@ nav a {
 }
 
 .hero {
-  padding: 120px 40px 80px;
-  max-width: 900px;
+  padding: 120px 60px 80px; /* mais espaçamento lateral */
+  width: 100%;
 }
 
 .hero h1 {
-  font-size: 52px;
+  font-size: 57px;
   margin-bottom: 12px;
 }
 
@@ -55,8 +55,8 @@ button {
 }
 
 .plans {
-  padding: 80px 40px;
-  max-width: 900px;
+  padding: 80px 60px;   /* mais espaçamento lateral */
+  width: 100%;          /* ocupa toda a tela */
 }
 
 .plan {
@@ -105,22 +105,24 @@ button {
 }
 
 .contact {
-  padding: 80px 40px;
+  padding: 80px 60px;  /* mais espaçamento lateral */
   background: #eee;
+  width: 100%;
 }
 
 footer {
-  padding: 40px;
+  padding: 40px 60px;  /* mais espaçamento lateral */
   font-size: 13px;
   color: #666;
 }
+
 /* Card de citações – estilo editorial */
 .quote-card {
   position: relative;
-  margin: 70px 0 70px;
+  margin: 70px auto;   /* centralizado */
   padding: 36px 70px;
   background: #f7f7f5;
-  max-width: 120%;
+  width: 100%;         /* ocupa toda a largura */
   min-height: 90px;
 }
 
@@ -140,9 +142,10 @@ footer {
 .quote-card:after {
   transform: scaleX(1);
 }
+
 /* Citação */
 .quote {
-  position: absolute;
+  position: relative;  /* ajustado para não ficar fora do card */
   opacity: 0;
   transform: translateY(10px);
   transition: opacity .5s ease, transform .5s ease;
@@ -150,7 +153,7 @@ footer {
   font-size: 20px;
   line-height: 1.35;
   color: #111;
-  max-width: 700px;
+  max-width: 100%;     /* agora ocupa toda a largura */
 }
 
 /* Ativa */
