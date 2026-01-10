@@ -6,6 +6,56 @@
 
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Inputs agradáveis */
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      transition: all .3s ease;
+    }
+    .contact-form input:focus, .contact-form textarea:focus {
+      border-color: #111;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+      outline: none;
+    }
+
+    /* Botões extras */
+    .social-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .social-buttons a {
+      flex: 1;
+      text-align: center;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform .2s ease;
+    }
+    .social-buttons a:hover {
+      transform: scale(1.05);
+    }
+    .btn-whatsapp {
+      background: #111;
+      color: #fff;
+    }
+    .btn-instagram {
+      background: #111;
+      color: #fff;
+    }
+
+    /* Palavras animadas */
+    .word {
+      display: inline-block;
+      transition: transform .3s ease;
+    }
+  </style>
 </head>
 <body>
 
@@ -18,26 +68,83 @@
     <a href="metodologia.html">Metodologia</a>
     <a href="manutencao.html">Manutenção</a>
     <a href="hospedagem.html">Hospedagem</a>
-    <a href="contato.html">Contato</a>
+    <a href="contato.html" aria-current="page">Contato</a>
   </nav>
 </header>
 
-<section class="contact">
-  <h1>Contato</h1>
-
+<section class="hero">
+  <h1>Fale conosco</h1>
   <p>
-    Atendimento humano, consultivo e personalizado.
-    Tire dúvidas, solicite proposta ou agende uma conversa.
+    Nós acreditamos que cada conversa é o início de uma parceria. 
+    Preencha o formulário ou use nossos canais diretos para falar com a equipe R&R.
   </p>
+</section>
 
-  <button>Falar no WhatsApp</button>
+<section class="contact">
+  <div class="contact-form">
+    <h2>Envie sua mensagem</h2>
+    <form>
+      <label>Nome</label>
+      <input type="text" name="nome" placeholder="Seu nome" required>
+
+      <label>Email</label>
+      <input type="email" name="email" placeholder="Seu melhor email" required>
+
+      <label>Mensagem</label>
+      <textarea name="mensagem" placeholder="Escreva sua mensagem..." required></textarea>
+
+      <button type="submit" class="btn primary">Enviar</button>
+    </form>
+
+    <div class="social-buttons">
+      <a href="https://wa.me/5534991282814" target="_blank" class="btn-whatsapp">WhatsApp</a>
+      <a href="https://instagram.com/realresultsolutions" target="_blank" class="btn-instagram">Instagram</a>
+    </div>
+  </div>
 </section>
 
 <footer>
   <p><strong>Real Result Solutions (R&R)</strong></p>
-  <p>Consultoria especializada em desenvolvimento de sites com SEO e performance.</p>
+  <p>Consultoria especializada em desenvolvimento, manutenção e hospedagem de sites com SEO e performance.</p>
   <p>© 2026 — Todos os direitos reservados</p>
 </footer>
 
+<script>
+(() => {
+  // 1) Quebra todas as palavras em spans
+  document.querySelectorAll('h1, h2, p, label').forEach(el => {
+    const words = el.textContent.split(' ');
+    el.innerHTML = words.map(w => `<span class="word">${w}</span>`).join(' ');
+  });
+
+  // 2) Anima cada palavra ao passar o mouse
+  document.querySelectorAll('.word').forEach(word => {
+    word.addEventListener('mouseenter', () => {
+      const x = (Math.random() - 0.5) * 40; // deslocamento aleatório
+      const y = (Math.random() - 0.5) * 40;
+      word.style.transform = `translate(${x}px, ${y}px) rotate(${(Math.random()-0.5)*20}deg)`;
+    });
+    word.addEventListener('mouseleave', () => {
+      word.style.transform = 'translate(0,0) rotate(0)';
+    });
+  });
+
+  // 3) Feedback no envio do formulário
+  const form = document.querySelector('.contact-form form');
+  if (form) {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = form.querySelector('.btn');
+      btn.textContent = 'Enviado ✔️';
+      btn.style.background = '#2ecc71';
+      setTimeout(() => {
+        btn.textContent = 'Enviar';
+        btn.style.background = '';
+        form.reset();
+      }, 2000);
+    });
+  }
+})();
+</script>
 </body>
 </html>
