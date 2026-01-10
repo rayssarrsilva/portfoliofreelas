@@ -114,3 +114,58 @@ footer {
   font-size: 13px;
   color: #666;
 }
+/* Card de citações – estilo editorial */
+.quote-card {
+  position: relative;
+  margin: 70px 0 70px;
+  padding: 36px 70px;
+  background: #f7f7f5;
+  max-width: 120%;
+  min-height: 90px;
+}
+
+.quote-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: #111;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.quote-card:after {
+  transform: scaleX(1);
+}
+/* Citação */
+.quote {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .5s ease, transform .5s ease;
+  font-family: 'DM Serif Display', serif;
+  font-size: 20px;
+  line-height: 1.35;
+  color: #111;
+  max-width: 700px;
+}
+
+/* Ativa */
+.quote.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Aspas decorativas */
+.quote::before {
+  content: "“";
+  position: absolute;
+  left: -24px;
+  top: -20px;
+  font-size: 64px;
+  color: #ddd;
+  font-family: 'DM Serif Display', serif;
+}

@@ -56,8 +56,10 @@ function showCartModal() {
   document.getElementById('cartModal').style.display = 'flex';
 }
 
-// Fecha o modal do carrinho
+// DOM Ready
 document.addEventListener('DOMContentLoaded', function() {
+
+  // Fechar modais
   const closeButtons = document.querySelectorAll('.close, .close-popup');
   closeButtons.forEach(btn => {
     btn.addEventListener('click', function() {
@@ -88,10 +90,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // Header scroll effect
   window.addEventListener('scroll', () => {
     const header = document.getElementById('header');
-    if (window.scrollY > 100) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
+    if (header) {
+      header.classList.toggle('scrolled', window.scrollY > 100);
     }
   });
 
@@ -120,11 +120,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // Copiar código
   window.copyCode = function() {
     const code = document.getElementById('discountCode').textContent;
-    navigator.clipboard.writeText(code).then(() => {
-      alert('Código copiado com sucesso!');
-    }).catch(err => {
-      console.error('Erro ao copiar:', err);
-    });
+    navigator.clipboard.writeText(code)
+      .then(() => alert('Código copiado com sucesso!'))
+      .catch(err => console.error('Erro ao copiar:', err));
   };
 
   // Mostrar contrato
@@ -137,6 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const contractText = document.getElementById('contractText').textContent;
     const blob = new Blob([contractText], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
+
     const a = document.createElement('a');
     a.href = url;
     a.download = 'contrato_rnr_solutions.txt';
@@ -162,4 +161,17 @@ document.addEventListener('DOMContentLoaded', function() {
       this.reset();
     });
   }
+
+  // 🔹 ROTAÇÃO DAS CITAÇÕES (CARD IMPONENTE)
+  const quotes = document.querySelectorAll('.quote');
+  if (quotes.length > 1) {
+    let current = 0;
+
+    setInterval(() => {
+      quotes[current].classList.remove('active');
+      current = (current + 1) % quotes.length;
+      quotes[current].classList.add('active');
+    }, 4000);
+  }
+
 });

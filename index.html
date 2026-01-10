@@ -14,6 +14,54 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const quotes = document.querySelectorAll(".quote-card .quote");
+  let quoteIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  let currentText = "";
+
+  // velocidades mínimas
+  let typingSpeed = 100;   // digitar super rápido
+  let deletingSpeed = 20;  // apagar super rápido
+
+  function typeEffect() {
+    const fullText = quotes[quoteIndex].dataset.fulltext;
+
+    if (!isDeleting) {
+      currentText = fullText.substring(0, charIndex + 1);
+      charIndex++;
+      quotes[quoteIndex].textContent = currentText;
+
+      if (charIndex === fullText.length) {
+        isDeleting = true; // terminou → já começa apagar
+      }
+    } else {
+      currentText = fullText.substring(0, charIndex - 1);
+      charIndex--;
+      quotes[quoteIndex].textContent = currentText;
+
+      if (charIndex === 0) {
+        isDeleting = false;
+        quotes[quoteIndex].textContent = "";
+        quoteIndex = (quoteIndex + 1) % quotes.length; // próxima frase
+      }
+    }
+
+    const speed = isDeleting ? deletingSpeed : typingSpeed;
+    setTimeout(typeEffect, speed);
+  }
+
+  // guarda o texto original e limpa
+  quotes.forEach(q => {
+    q.dataset.fulltext = q.textContent.trim();
+    q.textContent = "";
+  });
+
+  typeEffect();
+});
+</script>
 
 <header class="topbar">
   <strong>R&R</strong>
@@ -31,19 +79,33 @@
   <h1>Sites rápidos, encontrados no Google e feitos para vender</h1>
 
   <p>
-    A <strong>Real Result Solutions (R&R)</strong> é uma consultoria freelancer
-    especializada no desenvolvimento de sites profissionais, rápidos,
-    bem estruturados e totalmente responsivos para mobile, tablet e desktop.
+    A <strong>Real Result Solutions (R&R)</strong> é uma consultoria de desenvolvimento especializada em sites com identidade, responsividade e performance.
   </p>
 
   <p>
-    Nossos projetos já nascem otimizados para o Google, com foco real em SEO,
-    performance e conversão, permitindo que nossos clientes sejam encontrados
-    com facilidade e vendam mais de forma orgânica.
+    Nossos projetos nascem otimizados para o Google, com foco real em SEO desde o desenvolvimento da primeira linha de código.
   </p>
 
+  <div class="quote-card">
+    <blockquote class="quote active">
+      Conversão elevada graças a CTAs claros e oferta bem posicionada
+    </blockquote>
+
+    <blockquote class="quote">
+      Experiência do usuário alta com design responsivo e navegação intuitiva
+    </blockquote>
+
+    <blockquote class="quote">
+      SEO otimizado graças a conteúdo relevante e estrutura técnica correta
+    </blockquote>
+
+    <blockquote class="quote">
+      Velocidade graças a CDN e hospedagem de alta performance
+    </blockquote>
+  </div>
+  
   <p>
-    Aqui você não contrata apenas um site. Você contrata estratégia,
+    Aqui você contrata estratégia,
     posicionamento digital e acompanhamento técnico com atendimento humano,
     consultivo e personalizado.
   </p>
