@@ -24,7 +24,7 @@ h1, h2, h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 32px 64px;
+  padding: 32px 32px; /* Reduzido de 64px para 32px */
   position: sticky;
   top: 0;
   background: #f7f7f5;
@@ -46,15 +46,15 @@ nav a {
 /* Container REAL */
 .container {
   width: 100%;
-  max-width: 1280px;
+  max-width: 1440px; /* Aumentado de 1280px para 1440px */
   margin: 0 auto;
-  padding: 0 64px;
+  padding: 0 32px; /* Reduzido de 64px para 32px */
 }
 
 /* HERO */
 .hero {
-  padding: 160px 64px 120px;
-  max-width: 1280px;
+  padding: 160px 32px 120px; /* Reduzido de 64px para 32px */
+  max-width: 1440px; /* Aumentado de 1280px para 1440px */
   margin: 0 auto;
 }
 
