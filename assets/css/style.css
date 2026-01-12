@@ -24,11 +24,12 @@ h1, h2, h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 32px 32px; /* Reduzido de 64px para 32px */
+  padding: 32px 32px; /* reduzido para ocupar melhor */
   position: sticky;
   top: 0;
   background: #f7f7f5;
   z-index: 10;
+  width: 100%; /* cobre toda a largura */
 }
 
 .topbar strong {
@@ -41,36 +42,37 @@ nav a {
   text-decoration: none;
   color: #111;
   font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 /* Container REAL */
 .container {
   width: 100%;
-  max-width: 1440px; /* Aumentado de 1280px para 1440px */
   margin: 0 auto;
-  padding: 0 32px; /* Reduzido de 64px para 32px */
+  padding: 0 32px; /* reduzido para preencher mais */
 }
 
 /* HERO */
 .hero {
-  padding: 160px 32px 120px; /* Reduzido de 64px para 32px */
-  max-width: 1440px; /* Aumentado de 1280px para 1440px */
+  padding: 120px 32px 100px; /* ajustado para distribuir melhor */
+  width: 100%; /* ocupa toda a largura */
   margin: 0 auto;
 }
 
 .hero h1 {
   font-size: 68px;
   line-height: 1.1;
-  max-width: 900px;
   margin-bottom: 32px;
+  width: 100%; /* cobre toda a largura */
 }
 
 .hero p {
   font-size: 20px;
   line-height: 1.7;
-  max-width: 760px;
   color: #444;
   margin-bottom: 32px;
+  width: 100%; /* cobre toda a largura */
 }
 
 /* Botões */
@@ -88,6 +90,7 @@ button {
   font-size: 17px;
   border-radius: 8px;
   cursor: pointer;
+  width: auto; /* mantém proporção sem aumentar */
 }
 
 /* Quote card */
@@ -96,7 +99,7 @@ button {
   margin: 100px auto;
   padding: 56px 80px;
   background: #f7f7f5;
-  max-width: 1100px;
+  width: 100%; /* ocupa toda a largura */
   min-height: 140px;
 }
 
@@ -105,9 +108,10 @@ button {
   font-size: 24px;
   line-height: 1.4;
   color: #111;
-  opacity: 0;
-  position: absolute;
+  opacity: 1; /* já visível */
+  position: relative; /* não absoluto, para preencher */
   width: 100%;
+  margin: 0 auto;
 }
 
 .quote::before {
@@ -125,4 +129,5 @@ footer {
   font-size: 14px;
   color: #666;
   text-align: center;
+  width: 100%; /* cobre toda a largura */
 }
