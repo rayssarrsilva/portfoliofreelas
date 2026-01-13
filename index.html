@@ -192,45 +192,7 @@
   <p>Consultoria especializada em desenvolvimento de sites com SEO e performance.</p>
   <p>© 2026 — Todos os direitos reservados</p>
 </footer>
-
-<script>
-    // Efeito de queda no H1
-    const title = document.getElementById('falling-title');
-    const words = title.textContent.split(' ');
-    title.innerHTML = words.map(w => `<span class="fall">${w}</span>`).join(' ');
-
-    const spans = title.querySelectorAll('.fall');
-    spans.forEach((span, i) => {
-      setTimeout(() => {
-        span.classList.add('show');
-      }, i * 200); // cada palavra cai em sequência
-    });
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const quotes = document.querySelectorAll('.quote-card .quote');
-  let current = 0;
-
-  // lista de efeitos
-  const effects = ['fall-in', 'throw-in', 'type-in', 'zoom-in'];
-
-  // inicializa
-  quotes.forEach(q => q.style.opacity = 0);
-  quotes[current].classList.add(effects[0]);
-
-  setInterval(() => {
-    // remove efeito atual
-    quotes[current].className = 'quote';
-
-    // próximo índice
-    current = (current + 1) % quotes.length;
-
-    // aplica efeito correspondente
-    const effect = effects[current % effects.length];
-    quotes[current].classList.add(effect);
-  }, 4000);
-});
-</script>
+<script src="assets/js/plans.js" defer></script>
 
 </body>
 </html>
