@@ -1,62 +1,12 @@
 /* =====================
-   BASE
+   BASE DA PÁGINA
 ===================== */
 body {
   font-family: 'Inter', sans-serif;
   background: #f7f7f5;
   color: #111;
   line-height: 1.6;
-  padding-top: 96px;
-}
-
-/* =====================
-   MENU FIXO GLOBAL
-===================== */
-.topbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 76px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 48px;
-  background: rgba(247, 247, 245, 0.92);
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  z-index: 100;
-}
-
-.topbar strong {
-  font-family: 'DM Serif Display', serif;
-  font-size: 20px;
-  letter-spacing: 1px;
-}
-
-nav a {
-  margin-left: 32px;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.4px;
-  color: #111;
-  position: relative;
-}
-
-nav a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0;
-  height: 1px;
-  background: #111;
-  transition: width .3s ease;
-}
-
-nav a:hover::after {
-  width: 100%;
+  padding-top: 96px; /* compensação do menu fixo global */
 }
 
 /* =====================
@@ -82,7 +32,7 @@ nav a:hover::after {
 }
 
 /* =====================
-   PLAN CARD
+   CARD / BLOCO
 ===================== */
 .plan {
   background: #fff;
@@ -157,7 +107,7 @@ nav a:hover::after {
 }
 
 /* =====================
-   DETALHES
+   DETALHES (CONTROLADO PELO JS)
 ===================== */
 .details {
   max-height: 0;
