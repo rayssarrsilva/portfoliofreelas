@@ -1,0 +1,190 @@
+/* =====================
+   BASE
+===================== */
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f7f7f5;
+  color: #111;
+  line-height: 1.6;
+  padding-top: 96px;
+}
+
+/* =====================
+   MENU FIXO GLOBAL
+===================== */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  background: rgba(247, 247, 245, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  z-index: 100;
+}
+
+.topbar strong {
+  font-family: 'DM Serif Display', serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+nav a {
+  margin-left: 32px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  color: #111;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 1px;
+  background: #111;
+  transition: width .3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* =====================
+   CONTAINER
+===================== */
+.plans {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 96px 24px;
+}
+
+.plans h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 42px;
+  margin-bottom: 16px;
+}
+
+.intro {
+  max-width: 640px;
+  font-size: 17px;
+  color: #444;
+  margin-bottom: 72px;
+}
+
+/* =====================
+   PLAN CARD
+===================== */
+.plan {
+  background: #fff;
+  border-radius: 14px;
+  padding: 40px;
+  margin-bottom: 48px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+  transition: transform .3s ease;
+}
+
+.plan:hover {
+  transform: translateY(-4px);
+}
+
+.plan-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.plan h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 26px;
+}
+
+/* =====================
+   BOTÃO
+===================== */
+.toggle {
+  font-size: 13px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1px solid #111;
+  background: transparent;
+  cursor: pointer;
+  transition: background .25s ease, color .25s ease;
+}
+
+.toggle:hover {
+  background: #111;
+  color: #fff;
+}
+
+/* =====================
+   DESCRIÇÃO
+===================== */
+.plan-desc {
+  font-size: 15px;
+  color: #555;
+  max-width: 520px;
+}
+
+/* =====================
+   PREÇO
+===================== */
+.pricing {
+  margin-top: 24px;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.price {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.installments {
+  font-size: 13px;
+  color: #777;
+}
+
+/* =====================
+   DETALHES
+===================== */
+.details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease;
+  margin-top: 24px;
+}
+
+.details.open {
+  margin-top: 32px;
+}
+
+.bullets {
+  padding-left: 18px;
+}
+
+.bullets li {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+/* =====================
+   FOOTER
+===================== */
+footer {
+  padding: 48px 24px;
+  text-align: center;
+  font-size: 13px;
+  color: #666;
+}

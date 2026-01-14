@@ -5,533 +5,102 @@
   <title>Planos | Real Result Solutions</title>
 
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
-
-  <style>
-    .plans-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 32px;
-      margin-top: 64px;
-    }
-
-    .plan-card {
-      background: #fff;
-      padding: 32px;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-      position: relative;
-    }
-
-    .price {
-      font-size: 22px;
-      margin: 12px 0;
-      font-weight: 500;
-    }
-
-    /* === FRASE TEASER === */
-    .plan-teaser {
-      font-family: 'DM Serif Display', serif;
-      font-size: 18px;
-      line-height: 1.5;
-      margin: 16px 0 22px;
-      color: #111;
-      cursor: default;
-    }
-
-    .plan-teaser span {
-      display: inline-block;
-      transition: transform .25s ease, color .25s ease;
-    }
-
-    .plan-teaser span:hover {
-      transform: translateY(-4px);
-      color: #000;
-    }
-
-    .plan-actions {
-      display: flex;
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .plan-actions button {
-      padding: 8px 14px;
-      font-size: 13px;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    .plan-details {
-      display: none;
-      margin-top: 16px;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .plan-details.open {
-      display: block;
-    }
-
-    .plan-details ul {
-      padding-left: 18px;
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/planos.css">
 </head>
 
 <body>
 
 <header class="topbar">
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
-  <strong>R&R</strong>
+  <strong>Real Result Solutions</strong>
   <nav>
     <a href="index.html">Início</a>
     <a href="planos.html">Planos</a>
-    <a href="metodologia.html">Metodologia</a>
-    <a href="manutencao.html">Manutenção</a>
-    <a href="hospedagem.html">Hospedagem</a>
-    <a href="contato.html">Contato</a><!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <title>Planos | Real Result Solutions</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
-
-  <!-- CSS Global -->
-  <link rel="stylesheet" href="assets/css/style.css">
-
-  <!-- CSS LOCAL (somente o necessário) -->
-  <style>
-    .plans-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 32px;
-      margin-top: 64px;
-    }
-
-    .plan-card {
-      background: #fff;
-      padding: 32px;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-      transition: box-shadow .3s ease;
-    }
-
-    .price {
-      font-size: 22px;
-      font-weight: 500;
-      margin: 10px 0 6px;
-    }
-
-    .price-note {
-      font-size: 13px;
-      color: #555;
-      margin-bottom: 14px;
-    }
-
-    /* FRASE EDITORIAL (MEDIEVAL ELEGANTE) */
-    .plan-teaser {
-      font-family: 'Libre Baskerville', serif;
-      font-size: 16.5px;
-      line-height: 1.65;
-      letter-spacing: 0.15px;
-      margin: 18px 0 24px;
-      color: #1b1b1b;
-    }
-
-    .plan-teaser span {
-      display: inline-block;
-      transition: transform .25s ease, color .25s ease, text-shadow .25s ease;
-    }
-
-    .plan-teaser span:hover {
-      transform: translateY(-2px);
-      color: #000;
-      text-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    }
-
-    .plan-actions {
-      display: flex;
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .plan-actions button {
-      padding: 8px 14px;
-      font-size: 13px;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    .plan-details {
-      display: none;
-      margin-top: 16px;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .plan-details.open {
-      display: block;
-    }
-
-    .plan-details ul {
-      padding-left: 18px;
-    }
-  </style>
-</head>
-
-<body>
-
-<header class="topbar">
-  <strong>R&R</strong>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="planos.html">Planos</a>
-    <a href="metodologia.html">Metodologia</a>
-    <a href="manutencao.html">Manutenção</a>
-    <a href="hospedagem.html">Hospedagem</a>
+    <a href="portfolio.html">Portfólio</a>
+    <a href="sobre.html">Sobre</a>
     <a href="contato.html">Contato</a>
   </nav>
 </header>
 
-<section class="hero container">
-  <h1>Planos criados para gerar resultado real</h1>
-  <p>Escolha o plano ideal para o momento atual do seu negócio.</p>
+<main class="plans">
 
-  <div class="plans-grid">
+  <h1>Planos e Soluções Digitais</h1>
+  <p class="intro">
+    Cada plano foi estruturado para um nível específico de maturidade digital.
+    Nada genérico. Nada inflado. Apenas o que gera resultado real.
+  </p>
 
-    <!-- REAL -->
-    <div class="plan-card">
-      <h3>Real</h3>
-      <p class="price">R$ 349</p>
-      <p class="price-note">Presença digital essencial, direta e funcional</p>
-
-      <p class="plan-teaser">
-        <span>Ideal</span> <span>para</span> <span>quem</span> <span>precisa</span> <span>existir</span>
-        <span>no</span> <span>digital</span> <span>com</span> <span>clareza</span>
-        <span>e</span> <span>profissionalismo.</span>
-      </p>
-
-      <div class="plan-actions">
-        <button class="toggle">Ver o que está incluso</button>
-        <button class="copy">Copiar plano</button>
-      </div>
-
-      <div class="plan-details">
-        <ul>
-          <li>Página única</li>
-          <li>Sem menu</li>
-          <li>Botão WhatsApp/e-mail</li>
-          <li>Redes sociais</li>
-          <li>Mídia do cliente</li>
-          <li>Copywriting básico</li>
-          <li>Animações simples</li>
-          <li>Hospedagem .com.br + SSL</li>
-        </ul>
-        <strong>Entrega:</strong> até 7 dias úteis
-      </div>
+  <!-- PLANOS -->
+  <section class="plan" data-plan="real">
+    <div class="plan-head">
+      <h2>Real</h2>
+      <button class="toggle">Ver o que está incluso</button>
     </div>
-
-    <!-- RESULT -->
-    <div class="plan-card">
-      <h3>Result</h3>
-      <p class="price">R$ 549</p>
-      <p class="price-note">Mais estrutura, mais conversão, mais impacto</p>
-
-      <p class="plan-teaser">
-        <span>Um</span> <span>site</span> <span>pensado</span> <span>para</span> <span>apresentar</span>
-        <span>seu</span> <span>negócio</span> <span>com</span> <span>organização</span>
-        <span>e</span> <span>credibilidade.</span>
-      </p>
-
-      <div class="plan-actions">
-        <button class="toggle">Ver o que está incluso</button>
-        <button class="copy">Copiar plano</button>
-      </div>
-
-      <div class="plan-details">
-        <ul>
-          <li>Página única até 5 seções</li>
-          <li>Menu com scroll suave</li>
-          <li>Animações interativas</li>
-          <li>Botão de contato</li>
-          <li>Redes sociais</li>
-          <li>Copywriting incluso</li>
-          <li>Hospedagem .com + SSL</li>
-          <li>Google Meu Negócio</li>
-          <li>Carrinho, frete e prazo</li>
-        </ul>
-        <strong>Entrega:</strong> até 12 dias úteis
-      </div>
+    <p class="plan-desc">Presença online essencial, objetiva e funcional.</p>
+    <div class="pricing">
+      <span class="price">R$ 349</span>
+      <span class="installments">entrega em até 7 dias úteis</span>
     </div>
+    <div class="details"></div>
+  </section>
 
-    <!-- SOLUTION -->
-    <div class="plan-card">
-      <h3>Solution</h3>
-      <p class="price">R$ 849</p>
-      <p class="price-note">Conversão, SEO e crescimento contínuo</p>
-
-      <p class="plan-teaser">
-        <span>Desenvolvido</span> <span>para</span> <span>marcas</span> <span>que</span> <span>querem</span>
-        <span>atrair,</span> <span>reter</span> <span>e</span> <span>converter</span>
-        <span>com</span> <span>estratégia.</span>
-      </p>
-
-      <div class="plan-actions">
-        <button class="toggle">Ver o que está incluso</button>
-        <button class="copy">Copiar plano</button>
-      </div>
-
-      <div class="plan-details">
-        <ul>
-          <li>Até 8 seções</li>
-          <li>Menu fixo</li>
-          <li>Formulário ou WhatsApp</li>
-          <li>Copywriting otimizado</li>
-          <li>Feed Instagram</li>
-          <li>SEO básico + Search Console</li>
-          <li>Leads</li>
-          <li>Carrinho, frete e prazo</li>
-        </ul>
-        <strong>Entrega:</strong> até 20 dias úteis
-      </div>
+  <section class="plan" data-plan="result">
+    <div class="plan-head">
+      <h2>Result</h2>
+      <button class="toggle">Ver o que está incluso</button>
     </div>
-
-    <!-- REAL RESULT -->
-    <div class="plan-card">
-      <h3>Real Result</h3>
-      <p class="price">R$ 1.300</p>
-      <p class="price-note">Institucional sólido e funcional</p>
-
-      <p class="plan-teaser">
-        <span>Para</span> <span>empresas</span> <span>que</span> <span>precisam</span> <span>transmitir</span>
-        <span>confiança,</span> <span>estrutura</span> <span>e</span> <span>autoridade</span>
-        <span>no</span> <span>digital.</span>
-      </p>
-
-      <div class="plan-actions">
-        <button class="toggle">Ver o que está incluso</button>
-        <button class="copy">Copiar plano</button>
-      </div>
-
-      <div class="plan-details">
-        <ul>
-          <li>Até 5 páginas</li>
-          <li>Menu completo</li>
-          <li>Formulário simples</li>
-          <li>SEO básico</li>
-          <li>Funcionalidades JS</li>
-        </ul>
-        <strong>Entrega:</strong> até 16 dias úteis
-      </div>
+    <p class="plan-desc">Mais estrutura, mais conversão e primeiras integrações.</p>
+    <div class="pricing">
+      <span class="price">R$ 549</span>
+      <span class="installments">entrega em até 12 dias úteis</span>
     </div>
+    <div class="details"></div>
+  </section>
 
-    <!-- REAL RESULT SOLUTION -->
-    <div class="plan-card">
-      <h3>Real Result Solution</h3>
-      <p class="price">R$ 3.700</p>
-      <p class="price-note">Estratégia digital completa e escalável</p>
-
-      <p class="plan-teaser">
-        <span>A</span> <span>solução</span> <span>definitiva</span> <span>para</span> <span>negócios</span>
-        <span>que</span> <span>buscam</span> <span>crescimento,</span> <span>posicionamento</span>
-        <span>e</span> <span>autoridade</span> <span>máxima.</span>
-      </p>
-
-      <div class="plan-actions">
-        <button class="toggle">Ver o que está incluso</button>
-        <button class="copy">Copiar plano</button>
-      </div>
-
-      <div class="plan-details">
-        <ul>
-          <li>Até 10 páginas</li>
-          <li>Design exclusivo</li>
-          <li>SEO avançado</li>
-          <li>Blog + Analytics</li>
-          <li>CRM, carrinho e calculadoras</li>
-          <li>30 dias de suporte</li>
-        </ul>
-        <strong>Entrega:</strong> até 30 dias úteis
-      </div>
+  <section class="plan" data-plan="solution">
+    <div class="plan-head">
+      <h2>Solution</h2>
+      <button class="toggle">Ver o que está incluso</button>
     </div>
+    <p class="plan-desc">Projeto profissional com SEO, leads e automações.</p>
+    <div class="pricing">
+      <span class="price">R$ 849</span>
+      <span class="installments">entrega em até 20 dias úteis</span>
+    </div>
+    <div class="details"></div>
+  </section>
 
-  </div>
-</section>
+  <section class="plan" data-plan="realresult">
+    <div class="plan-head">
+      <h2>Real Result</h2>
+      <button class="toggle">Ver o que está incluso</button>
+    </div>
+    <p class="plan-desc">Site institucional sólido para empresas em crescimento.</p>
+    <div class="pricing">
+      <span class="price">R$ 1.300</span>
+      <span class="installments">entrega em até 16 dias úteis</span>
+    </div>
+    <div class="details"></div>
+  </section>
+
+  <section class="plan" data-plan="realresultsolution">
+    <div class="plan-head">
+      <h2>Real Result Solution</h2>
+      <button class="toggle">Ver o que está incluso</button>
+    </div>
+    <p class="plan-desc">Estrutura completa, estratégica e escalável.</p>
+    <div class="pricing">
+      <span class="price">R$ 3.700</span>
+      <span class="installments">entrega em até 30 dias úteis</span>
+    </div>
+    <div class="details"></div>
+  </section>
+
+</main>
 
 <footer>
-  <p><strong>Real Result Solutions (R&R)</strong></p>
-  <p>© 2026 — Todos os direitos reservados</p>
+  © Real Result Solutions — Estratégia, design e performance digital.
 </footer>
 
-<!-- JS MANTIDO INTACTO -->
-<script src="js/plans.js"></script>
-
-</body>
-</html>
-
-  </nav>
-</header>
-
-<section class="hero container">
-  <h1>Planos criados para gerar resultado real</h1>
-  <p>Escolha o plano ideal para o momento atual do seu negócio.</p>
-
-  <div class="plans-grid">
-
-    <!-- REAL -->
-    <div class="plan-card">
-      <h3>Real</h3>
-      <p class="price">R$ 349</p>
-
-      <p class="plan-teaser">
-        Ideal para quem precisa existir no digital com profissionalismo, rapidez e custo acessível.
-      </p>
-
-      <div class="plan-actions">
-        <button class="toggle">Ver o que está incluso</button>
-        <button class="copy">Copiar plano</button>
-      </div>
-
-      <div class="plan-details">
-        <ul>
-          <li>Página única</li>
-          <li>Sem menu</li>
-          <li>Botão de contato (WhatsApp/e-mail)</li>
-          <li>Links para redes sociais</li>
-          <li>Mídia fornecida pelo cliente</li>
-          <li>Copywriting básico</li>
-          <li>Animações básicas</li>
-          <li>Hospedagem .com.br + SSL</li>
-        </ul>
-        <strong>Entrega:</strong> até 7 dias úteis
-      </div>
-    </div>
-
-    <!-- RESULT -->
-    <div class="plan-card">
-      <h3>Result</h3>
-      <p class="price">R$ 549</p>
-
-      <p class="plan-teaser">
-        Mais estrutura, clareza e uma apresentação pensada para gerar contato e interesse.
-      </p>
-
-      <div class="plan-actions">
-        <button class="toggle">Ver o que está incluso</button>
-        <button class="copy">Copiar plano</button>
-      </div>
-
-      <div class="plan-details">
-        <ul>
-          <li>Até 5 seções personalizáveis</li>
-          <li>Menu simples com scroll suave</li>
-          <li>Animações interativas</li>
-          <li>Botões de contato</li>
-          <li>Google Meu Negócio</li>
-          <li>Carrinho, frete e prazo</li>
-        </ul>
-        <strong>Entrega:</strong> até 12 dias úteis
-      </div>
-    </div>
-
-    <!-- SOLUTION -->
-    <div class="plan-card">
-      <h3>Solution</h3>
-      <p class="price">R$ 849</p>
-
-      <p class="plan-teaser">
-        Um site planejado para atrair, engajar e converter visitantes em leads reais.
-      </p>
-
-      <div class="plan-actions">
-        <button class="toggle">Ver o que está incluso</button>
-        <button class="copy">Copiar plano</button>
-      </div>
-
-      <div class="plan-details">
-        <ul>
-          <li>Até 8 seções</li>
-          <li>SEO básico completo</li>
-          <li>Feed do Instagram</li>
-          <li>Formulário de leads</li>
-          <li>Google Search Console</li>
-        </ul>
-        <strong>Entrega:</strong> até 20 dias úteis
-      </div>
-    </div>
-
-    <!-- REAL RESULT -->
-    <div class="plan-card">
-      <h3>Real Result</h3>
-      <p class="price">R$ 1.300</p>
-
-      <p class="plan-teaser">
-        Presença institucional sólida para empresas que exigem credibilidade e confiança.
-      </p>
-
-      <div class="plan-actions">
-        <button class="toggle">Ver o que está incluso</button>
-        <button class="copy">Copiar plano</button>
-      </div>
-
-      <div class="plan-details">
-        <ul>
-          <li>Até 5 páginas</li>
-          <li>Menu completo responsivo</li>
-          <li>SEO institucional</li>
-          <li>Orçamento rápido</li>
-        </ul>
-        <strong>Entrega:</strong> até 16 dias úteis
-      </div>
-    </div>
-
-    <!-- REAL RESULT SOLUTION -->
-    <div class="plan-card">
-      <h3>Real Result Solution</h3>
-      <p class="price">R$ 3.700</p>
-
-      <p class="plan-teaser">
-        Uma plataforma digital completa para escalar marca, autoridade e resultados.
-      </p>
-
-      <div class="plan-actions">
-        <button class="toggle">Ver o que está incluso</button>
-        <button class="copy">Copiar plano</button>
-      </div>
-
-      <div class="plan-details">
-        <ul>
-          <li>Até 10 páginas</li>
-          <li>Design exclusivo</li>
-          <li>SEO avançado</li>
-          <li>Blog e automações</li>
-          <li>Manutenção 30 dias</li>
-        </ul>
-        <strong>Entrega:</strong> até 30 dias úteis
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<footer>
-  <p><strong>Real Result Solutions (R&R)</strong></p>
-  <p>© 2026 — Todos os direitos reservados</p>
-</footer>
-
-<script src="js/plans.js"></script>
-
-<!-- JS EXTRA — ISOLADO (EFEITO NAS FRASES) -->
-<script>
-  document.querySelectorAll('.plan-teaser').forEach(el => {
-    const words = el.innerText.split(' ');
-    el.innerHTML = words.map(word => `<span>${word}</span>`).join(' ');
-  });
-</script>
-
+<script src="js/planos.js"></script>
 </body>
 </html>

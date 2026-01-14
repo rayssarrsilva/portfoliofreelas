@@ -8,6 +8,11 @@ html, body {
   overflow-x: hidden;
 }
 
+/* 🔹 COMPENSAÇÃO DO MENU FIXO (OBRIGATÓRIA) */
+body {
+  padding-top: 96px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -19,19 +24,23 @@ h1, h2, h3 {
   font-family: 'DM Serif Display', serif;
 }
 
-/* Topbar */
+/* =====================
+   TOPBAR FIXA (SEM ALTERAR ESTILO)
+===================== */
 .topbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 32px 32px;
-  position: sticky;
+  position: fixed; /* ÚNICA MUDANÇA REAL */
   top: 0;
+  left: 0;
   background: #f7f7f5;
-  z-index: 10;
+  z-index: 100;
   width: 100%;
 }
 
+/* Mantido exatamente */
 .topbar strong {
   font-size: 20px;
   letter-spacing: 1px;
@@ -55,7 +64,7 @@ nav a {
 
 /* HERO */
 .hero {
-  padding: 100px 32px 80px; /* ajustado para não colar demais */
+  padding: 100px 32px 80px;
   width: 100%;
   margin: 0 auto;
 }
@@ -86,17 +95,17 @@ button {
   border: none;
   background: #111;
   color: #fff;
-  padding: 14px 28px; /* mais delicado */
-  font-size: 16px;    /* levemente menor */
-  border-radius: 6px; /* bordas mais suaves */
+  padding: 14px 28px;
+  font-size: 16px;
+  border-radius: 6px;
   cursor: pointer;
-  width: fit-content; /* impede que estiquem */
+  width: fit-content;
 }
 
 /* Quote card */
 .quote-card {
   position: relative;
-  margin: 80px auto; /* reduzido para não colar */
+  margin: 80px auto;
   padding: 48px 64px;
   background: #f7f7f5;
   width: 100%;
@@ -125,7 +134,7 @@ button {
 
 /* Rodapé */
 footer {
-  padding: 48px 32px; /* mais compacto */
+  padding: 48px 32px;
   font-size: 14px;
   color: #666;
   text-align: center;
