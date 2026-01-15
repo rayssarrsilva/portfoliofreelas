@@ -12,22 +12,24 @@
 <!-- CSS GLOBAL DA PÁGINA -->
 <link rel="stylesheet" href="assets/css/style.css">
 
-<!-- CSS EMBUTIDO DA PÁGINA MANTIDO -->
+<!-- CSS EMBUTIDO DA PÁGINA -->
 <style>
-/* ===================== BASE, HERO, CARDS, FOOTER (mantido como original) ===================== */
-/* ...o CSS que você já tinha, mantido integralmente ... */
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family: 'Inter', sans-serif; background:#f7f7f5; color:#111; line-height:1.6; padding-top:96px; }
 h1,h2,h3 { font-family:'DM Serif Display', serif; }
 
-/* HERO, CARDS, QUOTES e FOOTER como no seu arquivo original */
+/* HERO */
 .hero { text-align:center; padding:120px 32px 80px; max-width:900px; margin:0 auto; }
 .hero h1 { font-size:60px; margin-bottom:24px; }
 .hero p { font-size:20px; color:#444; }
 
+/* CONTAINER DE CARDS */
 .container { max-width:1000px; margin:0 auto; padding:0 32px; display:grid; gap:40px; }
+
+/* CARDS DE ETAPA */
 .plan-card { background:#fff; border-radius:12px; overflow:hidden; border-top:8px solid #111; box-shadow:0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor:pointer; }
 .plan-card:hover { transform:translateY(-4px); box-shadow:0 8px 20px rgba(0,0,0,0.12); }
+
 .plan-card[data-step="1"] { border-top-color:#FF6B6B; }
 .plan-card[data-step="2"] { border-top-color:#4ECDC4; }
 .plan-card[data-step="3"] { border-top-color:#556270; }
@@ -35,18 +37,22 @@ h1,h2,h3 { font-family:'DM Serif Display', serif; }
 .plan-card[data-step="5"] { border-top-color:#FFA500; }
 .plan-card[data-step="6"] { border-top-color:#6A4C93; }
 .plan-card[data-step="7"] { border-top-color:#FF69B4; }
+
 .plan-head { display:flex; justify-content:space-between; align-items:center; padding:24px; }
 .plan-head h2 { font-size:24px; }
 .toggle { background:#111; color:#fff; border:none; padding:10px 20px; border-radius:6px; cursor:pointer; font-weight:500; transition: all 0.25s ease; }
 .toggle:hover { background:#333; transform:scale(1.05); }
+
 .plan-body { max-height:0; overflow:hidden; padding:0 24px; transition: max-height 0.5s ease, padding 0.5s ease; background:#fafafa; }
 .plan-body.open { max-height:1000px; padding:24px; }
 .plan-body p { margin-bottom:12px; color:#333; line-height:1.5; }
 
+/* QUOTES */
 .quote-card { max-width:800px; margin:80px auto; text-align:center; }
 .quote-card .quote { display:none; font-size:22px; font-style:italic; color:#111; }
 .quote-card .quote.active { display:block; }
 
+/* FOOTER */
 footer { text-align:center; padding:48px 32px; color:#666; font-size:14px; }
 </style>
 </head>
@@ -71,8 +77,82 @@ footer { text-align:center; padding:48px 32px; color:#666; font-size:14px; }
 </section>
 
 <section class="container">
-  <!-- CARDS REPLICADOS -->
-  <!-- ...mantidos integralmente como no original, 7 cards ... -->
+  <!-- ETAPA 1 -->
+  <div class="plan-card" data-step="1">
+    <div class="plan-head">
+      <h2>Planejamento Estratégico</h2>
+      <button class="toggle">Ver detalhes</button>
+    </div>
+    <div class="plan-body">
+      <p>Definimos objetivos claros, público-alvo e posicionamento de marca para criar um site que realmente converta.</p>
+    </div>
+  </div>
+
+  <!-- ETAPA 2 -->
+  <div class="plan-card" data-step="2">
+    <div class="plan-head">
+      <h2>Análise de Mercado</h2>
+      <button class="toggle">Ver detalhes</button>
+    </div>
+    <div class="plan-body">
+      <p>Pesquisamos concorrentes e tendências do setor para identificar oportunidades e diferenciais estratégicos.</p>
+    </div>
+  </div>
+
+  <!-- ETAPA 3 -->
+  <div class="plan-card" data-step="3">
+    <div class="plan-head">
+      <h2>Arquitetura e UX</h2>
+      <button class="toggle">Ver detalhes</button>
+    </div>
+    <div class="plan-body">
+      <p>Estruturamos a navegação e interface com foco na experiência do usuário, aumentando engajamento e conversões.</p>
+    </div>
+  </div>
+
+  <!-- ETAPA 4 -->
+  <div class="plan-card" data-step="4">
+    <div class="plan-head">
+      <h2>Design Visual</h2>
+      <button class="toggle">Ver detalhes</button>
+    </div>
+    <div class="plan-body">
+      <p>Criamos layouts atraentes e consistentes com a identidade da marca, garantindo estética e profissionalismo.</p>
+    </div>
+  </div>
+
+  <!-- ETAPA 5 -->
+  <div class="plan-card" data-step="5">
+    <div class="plan-head">
+      <h2>Desenvolvimento</h2>
+      <button class="toggle">Ver detalhes</button>
+    </div>
+    <div class="plan-body">
+      <p>Transformamos o design em código limpo, responsivo e otimizado para performance e SEO.</p>
+    </div>
+  </div>
+
+  <!-- ETAPA 6 -->
+  <div class="plan-card" data-step="6">
+    <div class="plan-head">
+      <h2>SEO e Conteúdo</h2>
+      <button class="toggle">Ver detalhes</button>
+    </div>
+    <div class="plan-body">
+      <p>Aplicamos SEO técnico, criação de conteúdo relevante e integração de métricas para gerar tráfego qualificado.</p>
+    </div>
+  </div>
+
+  <!-- ETAPA 7 -->
+  <div class="plan-card" data-step="7">
+    <div class="plan-head">
+      <h2>Lançamento e Monitoramento</h2>
+      <button class="toggle">Ver detalhes</button>
+    </div>
+    <div class="plan-body">
+      <p>Após o lançamento, monitoramos resultados e ajustamos continuamente para manter performance e relevância.</p>
+    </div>
+  </div>
 </section>
 
 <section class="quote-card">
