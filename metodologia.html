@@ -4,9 +4,129 @@
   <meta charset="UTF-8">
   <title>Metodologia | Real Result Solutions</title>
 
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/menu.css">
-  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    /* =====================
+       RESET & BASE
+    ====================== */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f7f7f5;
+      color: #111;
+      line-height: 1.6;
+      padding-top: 96px;
+    }
+    h1,h2,h3 { font-family: 'DM Serif Display', serif; }
+
+    /* =====================
+       TOPBAR
+    ====================== */
+    .topbar {
+      position: fixed;
+      top:0; left:0; width:100%;
+      display:flex; justify-content:space-between; align-items:center;
+      padding: 32px; background: #f7f7f5; z-index:100;
+    }
+    .topbar strong { font-size:20px; }
+    nav a {
+      margin-left:24px;
+      text-decoration:none;
+      color:#111;
+      font-weight:500;
+      font-size:15px;
+    }
+
+    /* =====================
+       HERO
+    ====================== */
+    .hero {
+      text-align:center;
+      padding:120px 32px 80px;
+      max-width:900px;
+      margin:0 auto;
+    }
+    .hero h1 { font-size:60px; margin-bottom:24px; }
+    .hero p { font-size:20px; color:#444; }
+
+    /* =====================
+       CARDS
+    ====================== */
+    .container { 
+      max-width:1000px; 
+      margin:0 auto; 
+      padding:0 32px; 
+      display:grid; 
+      gap:40px; 
+    }
+    .plan-card {
+      background:#fff;
+      border-radius:12px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+      overflow:hidden;
+      border-top:8px solid #111;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor:pointer;
+    }
+    .plan-card:hover { 
+      transform:translateY(-6px); 
+      box-shadow:0 12px 28px rgba(0,0,0,0.15); 
+    }
+
+    .plan-card[data-step="1"] { border-top-color:#FF6B6B; }
+    .plan-card[data-step="2"] { border-top-color:#4ECDC4; }
+    .plan-card[data-step="3"] { border-top-color:#556270; }
+    .plan-card[data-step="4"] { border-top-color:#C7F464; }
+    .plan-card[data-step="5"] { border-top-color:#FFA500; }
+    .plan-card[data-step="6"] { border-top-color:#6A4C93; }
+    .plan-card[data-step="7"] { border-top-color:#FF69B4; }
+
+    .plan-head { display:flex; justify-content:space-between; align-items:center; padding:24px; }
+    .plan-head h2 { font-size:24px; }
+
+    .toggle {
+      background:#111; 
+      color:#fff; 
+      border:none; 
+      padding:10px 20px; 
+      border-radius:6px;
+      cursor:pointer; 
+      font-weight:500;
+      transition: all 0.25s ease;
+    }
+    .toggle:hover { 
+      background:#333; 
+      transform:scale(1.05); 
+    }
+
+    .plan-body {
+      max-height:0; 
+      overflow:hidden; 
+      padding:0 24px; 
+      transition: max-height 0.5s ease, padding 0.5s ease;
+      background:#fafafa;
+    }
+    .plan-body.open { 
+      max-height:1000px; /* altura suficiente para todo conteúdo */
+      padding:24px; 
+    }
+
+    .plan-body p { margin-bottom:12px; color:#333; line-height:1.5; }
+
+    /* =====================
+       QUOTES
+    ====================== */
+    .quote-card { max-width:800px; margin:80px auto; text-align:center; }
+    .quote-card .quote { display:none; font-size:22px; font-style:italic; color:#111; }
+    .quote-card .quote.active { display:block; }
+
+    /* =====================
+       FOOTER
+    ====================== */
+    footer { text-align:center; padding:48px 32px; color:#666; font-size:14px; }
+  </style>
 </head>
 <body>
 
@@ -23,139 +143,99 @@
   </nav>
 </header>
 
-<section class="plans">
-  <h1>Metodologia de SEO e Conversão</h1>
-  <p>
-    Nós não acreditamos em fórmulas mágicas. Acreditamos em método, consistência e dados. 
-    Nossa metodologia é um checklist estratégico que garante sites rápidos, indexados e preparados para gerar resultados reais.
-  </p>
-
-  <!-- Estrutura HTML -->
-  <article class="plan">
-    <div class="plan-head">
-      <h2>1. Estrutura HTML</h2>
-      <button class="toggle" data-target="#html-estrutura">Ver detalhes</button>
-    </div>
-    <p class="plan-desc">
-      Nós começamos pelo básico: uma estrutura limpa e otimizada para que o Google entenda seu site.
-    </p>
-    <div class="details" id="html-estrutura">
-      <ul class="bullets">
-        <li>Title único e descritivo (até 60 caracteres), baseado em dados de Search Console, Trends e Ahrefs.</li>
-        <li>Meta description clara (até 160 caracteres), ajustada para aumentar o CTR.</li>
-        <li>Headings bem estruturados (H1, H2, H3) com palavras-chave principais e secundárias.</li>
-      </ul>
-    </div>
-  </article>
-
-  <!-- Conteúdo -->
-  <article class="plan">
-    <div class="plan-head">
-      <h2>2. Conteúdo</h2>
-      <button class="toggle" data-target="#conteudo">Ver detalhes</button>
-    </div>
-    <p class="plan-desc">
-      Nós produzimos conteúdo original e relevante, alinhado às buscas reais do seu público.
-    </p>
-    <div class="details" id="conteudo">
-      <ul class="bullets">
-        <li>Textos originais e estratégicos, baseados em tendências e lacunas de concorrência.</li>
-        <li>Imagens otimizadas com alt descritivo, reforçando SEO e acessibilidade.</li>
-      </ul>
-    </div>
-  </article>
-
-  <!-- Performance técnica -->
-  <article class="plan">
-    <div class="plan-head">
-      <h2>3. Performance técnica</h2>
-      <button class="toggle" data-target="#performance">Ver detalhes</button>
-    </div>
-    <p class="plan-desc">
-      Nós garantimos velocidade e responsividade, porque performance é conversão.
-    </p>
-    <div class="details" id="performance">
-      <ul class="bullets">
-        <li>Velocidade de carregamento validada em PageSpeed Insights e GTmetrix.</li>
-        <li>Responsividade testada em dispositivos reais e ferramentas do Google.</li>
-      </ul>
-    </div>
-  </article>
-
-  <!-- UX -->
-  <article class="plan">
-    <div class="plan-head">
-      <h2>4. Experiência do usuário (UX)</h2>
-      <button class="toggle" data-target="#ux">Ver detalhes</button>
-    </div>
-    <p class="plan-desc">
-      Nós desenhamos a jornada do usuário para ser simples, clara e intuitiva.
-    </p>
-    <div class="details" id="ux">
-      <ul class="bullets">
-        <li>Navegação objetiva, inspirada em benchmarks locais e globais.</li>
-        <li>Layout acessível e legível, validado com Lighthouse.</li>
-      </ul>
-    </div>
-  </article>
-
-  <!-- SEO técnico -->
-  <article class="plan">
-    <div class="plan-head">
-      <h2>5. SEO técnico</h2>
-      <button class="toggle" data-target="#seo-tecnico">Ver detalhes</button>
-    </div>
-    <p class="plan-desc">
-      Nós configuramos a base técnica para que o Google rastreie e indexe sem barreiras.
-    </p>
-    <div class="details" id="seo-tecnico">
-      <ul class="bullets">
-        <li>Sitemap.xml e robots.txt configurados corretamente.</li>
-        <li>Canonical tags aplicadas para evitar conteúdo duplicado.</li>
-        <li>Schema.org implementado e validado em Rich Results Test.</li>
-      </ul>
-    </div>
-  </article>
-
-  <!-- Integração Google -->
-  <article class="plan">
-    <div class="plan-head">
-      <h2>6. Integração com Google</h2>
-      <button class="toggle" data-target="#google">Ver detalhes</button>
-    </div>
-    <p class="plan-desc">
-      Nós conectamos seu site às principais ferramentas do Google para monitorar e evoluir continuamente.
-    </p>
-    <div class="details" id="google">
-      <ul class="bullets">
-        <li>Google Analytics (GA4) para monitorar tráfego e comportamento.</li>
-        <li>Google Search Console para acompanhar ranking e corrigir erros.</li>
-        <li>Google Meu Negócio para SEO local e presença regional.</li>
-      </ul>
-    </div>
-  </article>
-
-  <!-- Melhorias -->
-  <article class="plan">
-    <div class="plan-head">
-      <h2>💡 Como melhoramos continuamente</h2>
-      <button class="toggle" data-target="#melhorias">Ver detalhes</button>
-    </div>
-    <p class="plan-desc">
-      Nós não paramos na entrega: otimizamos mês a mês para que seu site evolua junto com seu negócio.
-    </p>
-    <div class="details" id="melhorias">
-      <ul class="bullets">
-        <li>Compressão e formatos modernos de imagens (WebP).</li>
-        <li>Cache e CDN para reduzir tempo de carregamento.</li>
-        <li>Minificação de CSS/JS e lazy load em mídia.</li>
-        <li>Hospedagem rápida e servidor configurado para alta performance.</li>
-      </ul>
-    </div>
-  </article>
+<section class="hero">
+  <h1>Metodologia Estratégica — Sites que convertem</h1>
+  <p>Nossa abordagem é baseada em dados, consistência e resultados mensuráveis. Cada etapa do processo é planejada para gerar performance, SEO efetivo e experiência do usuário.</p>
 </section>
 
-<!-- Frases de autoridade -->
+<section class="container">
+
+  <!-- CARD 1 -->
+  <article class="plan-card" data-step="1">
+    <div class="plan-head">
+      <h2>1. Estrutura HTML</h2>
+      <button class="toggle">Ver detalhes</button>
+    </div>
+    <div class="plan-body">
+      <p>Começamos pelo básico: uma estrutura limpa, sem códigos desnecessários, que o Google interpreta corretamente.</p>
+      <p>Aplicamos títulos (H1, H2, H3), meta description e headings otimizados para palavras-chave estratégicas.</p>
+    </div>
+  </article>
+
+  <!-- CARD 2 -->
+  <article class="plan-card" data-step="2">
+    <div class="plan-head">
+      <h2>2. Conteúdo</h2>
+      <button class="toggle">Ver detalhes</button>
+    </div>
+    <div class="plan-body">
+      <p>Produzimos textos originais e relevantes, focados no público-alvo, tendências e lacunas da concorrência.</p>
+      <p>Imagens otimizadas com alt text e elementos multimídia reforçam SEO e experiência visual do usuário.</p>
+    </div>
+  </article>
+
+  <!-- CARD 3 -->
+  <article class="plan-card" data-step="3">
+    <div class="plan-head">
+      <h2>3. Performance Técnica</h2>
+      <button class="toggle">Ver detalhes</button>
+    </div>
+    <div class="plan-body">
+      <p>Velocidade de carregamento é essencial. Testamos com PageSpeed Insights, GTmetrix e dispositivos reais.</p>
+      <p>Aplicamos cache, minificação de scripts e imagens otimizadas para garantir performance máxima.</p>
+    </div>
+  </article>
+
+  <!-- CARD 4 -->
+  <article class="plan-card" data-step="4">
+    <div class="plan-head">
+      <h2>4. Experiência do Usuário (UX)</h2>
+      <button class="toggle">Ver detalhes</button>
+    </div>
+    <div class="plan-body">
+      <p>Desenhamos a jornada do usuário de forma simples, clara e intuitiva.</p>
+      <p>Navegação eficiente, design acessível e validação com Lighthouse garantem que todos consigam usar o site facilmente.</p>
+    </div>
+  </article>
+
+  <!-- CARD 5 -->
+  <article class="plan-card" data-step="5">
+    <div class="plan-head">
+      <h2>5. SEO Técnico</h2>
+      <button class="toggle">Ver detalhes</button>
+    </div>
+    <div class="plan-body">
+      <p>Configuramos sitemap.xml, robots.txt, canonical tags e schema.org para indexação correta.</p>
+      <p>Evita conteúdo duplicado e aumenta a visibilidade orgânica de forma consistente.</p>
+    </div>
+  </article>
+
+  <!-- CARD 6 -->
+  <article class="plan-card" data-step="6">
+    <div class="plan-head">
+      <h2>6. Integração com Google</h2>
+      <button class="toggle">Ver detalhes</button>
+    </div>
+    <div class="plan-body">
+      <p>Conectamos seu site ao GA4, Search Console e Google Meu Negócio.</p>
+      <p>Monitoramento contínuo permite ajustes rápidos para performance, SEO local e análise de tráfego.</p>
+    </div>
+  </article>
+
+  <!-- CARD 7 -->
+  <article class="plan-card" data-step="7">
+    <div class="plan-head">
+      <h2>7. Melhorias Contínuas</h2>
+      <button class="toggle">Ver detalhes</button>
+    </div>
+    <div class="plan-body">
+      <p>Otimizamos mês a mês com imagens WebP, lazy load, minificação de scripts e CSS, e cache eficiente.</p>
+      <p>Hospedagem configurada para alta performance e atualizações estratégicas de SEO.</p>
+    </div>
+  </article>
+
+</section>
+
 <section class="quote-card">
   <blockquote class="quote active">“Nós não otimizamos apenas sites, nós otimizamos resultados.”</blockquote>
   <blockquote class="quote">“SEO é método, não sorte. E nós seguimos cada etapa com precisão.”</blockquote>
@@ -168,152 +248,33 @@
   <p>© 2026 — Todos os direitos reservados</p>
 </footer>
 
-<!-- Script JS -->
-<script src="assets/js/methodology.js" defer></script>
 <script>
 (() => {
   const qsa = sel => Array.from(document.querySelectorAll(sel));
-  const qs = sel => document.querySelector(sel);
 
-  // 1) Acordeão suave com animação e acessibilidade
+  // Toggle cards
   qsa('.toggle').forEach(btn => {
-    const targetSel = btn.getAttribute('data-target');
-    const panel = qs(targetSel);
-    if (!panel) return;
-
-    const openPanel = () => {
-      qsa('.details.open').forEach(d => {
-        d.style.maxHeight = '0px';
-        d.classList.remove('open');
-        d.setAttribute('aria-hidden', 'true');
-        const b = d.parentElement.querySelector('.toggle');
-        if (b) b.setAttribute('aria-expanded', 'false');
-      });
-      panel.classList.add('open');
-      panel.style.maxHeight = panel.scrollHeight + 'px';
-      panel.setAttribute('aria-hidden', 'false');
-      btn.setAttribute('aria-expanded', 'true');
-
-      qsa('.bullets li', panel).forEach((li, i) => {
-        li.style.opacity = 0;
-        li.style.transform = 'translateY(8px)';
-        setTimeout(() => {
-          li.style.transition = 'opacity .35s ease, transform .35s ease';
-          li.style.opacity = 1;
-          li.style.transform = 'translateY(0)';
-        }, 70 * i);
-      });
-    };
-
-    const closePanel = () => {
-      panel.style.maxHeight = '0px';
-      panel.classList.remove('open');
-      panel.setAttribute('aria-hidden', 'true');
-      btn.setAttribute('aria-expanded', 'false');
-    };
-
     btn.addEventListener('click', () => {
-      const isOpen = panel.classList.contains('open');
-      isOpen ? closePanel() : openPanel();
-    });
+      const cardBody = btn.closest('.plan-card').querySelector('.plan-body');
+      const isOpen = cardBody.classList.contains('open');
 
-    btn.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        btn.click();
-      }
-    });
+      // Fecha todos
+      qsa('.plan-body.open').forEach(pb => pb.classList.remove('open'));
 
-    window.addEventListener('resize', () => {
-      if (panel.classList.contains('open')) {
-        panel.style.maxHeight = panel.scrollHeight + 'px';
+      if(!isOpen) {
+        cardBody.classList.add('open');
       }
     });
   });
 
-  // 2) Botões magnéticos (hover interativo)
-  const applyMagnetic = btn => {
-    const strength = 14;
-    const reset = () => (btn.style.transform = 'translate3d(0,0,0)');
-    btn.addEventListener('mousemove', e => {
-      const r = btn.getBoundingClientRect();
-      const x = e.clientX - r.left - r.width / 2;
-      const y = e.clientY - r.top - r.height / 2;
-      btn.style.transform = `translate3d(${(x / r.width) * strength}px, ${(y / r.height) * strength}px, 0)`;
-    });
-    btn.addEventListener('mouseleave', reset);
-  };
-  qsa('.toggle, .btn').forEach(applyMagnetic);
-
-  // 3) Rotação de frases de autoridade
+  // Rotação de quotes
   const quotes = qsa('.quote-card .quote');
-  if (quotes.length) {
-    let i = 0;
-    quotes.forEach((q, idx) => q.classList.toggle('active', idx === 0));
-    setInterval(() => {
-      quotes[i].classList.remove('active');
-      i = (i + 1) % quotes.length;
-      quotes[i].classList.add('active');
-    }, 3800);
-
-    const quoteStyle = document.createElement('style');
-    quoteStyle.innerHTML = `
-      .quote-card .quote { opacity: 0; transform: translateY(8px); }
-      .quote-card .quote.active { opacity: 1; transform: translateY(0); transition: opacity .45s ease, transform .45s ease; }
-    `;
-    document.head.appendChild(quoteStyle);
-  }
-
-  // 4) Barra de progresso de leitura fixa no topo
-  const progressBar = document.createElement('div');
-  progressBar.setAttribute('aria-hidden', 'true');
-  Object.assign(progressBar.style, {
-    position: 'fixed',
-    top: '0',
-    left: '0',
-    height: '4px',
-    width: '0%',
-    background: '#111',
-    zIndex: '9999',
-    transition: 'width .15s linear'
-  });
-  document.body.appendChild(progressBar);
-
-  const updateProgress = () => {
-    const h = document.documentElement.scrollHeight - window.innerHeight;
-    const y = window.scrollY;
-    const pct = h > 0 ? (y / h) * 100 : 0;
-    progressBar.style.width = pct + '%';
-  };
-  updateProgress();
-  window.addEventListener('scroll', updateProgress);
-  window.addEventListener('resize', updateProgress);
-
-  // 5) Revelação suave dos cards ao rolar
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.08 });
-
-  qsa('.plan, .pricing').forEach(el => {
-    el.style.opacity = 0;
-    el.style.transform = 'translateY(10px)';
-    io.observe(el);
-  });
-
-  const fadeStyle = document.createElement('style');
-  fadeStyle.innerHTML = `
-    .plan.in, .pricing.in { 
-      opacity: 1 !important; 
-      transform: translateY(0) !important; 
-      transition: opacity .5s ease, transform .5s ease; 
-    }
-  `;
-  document.head.appendChild(fadeStyle);
+  let qIndex = 0;
+  setInterval(() => {
+    quotes[qIndex].classList.remove('active');
+    qIndex = (qIndex + 1) % quotes.length;
+    quotes[qIndex].classList.add('active');
+  }, 4000);
 })();
 </script>
 
