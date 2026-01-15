@@ -22,21 +22,58 @@
     h1,h2,h3 { font-family: 'DM Serif Display', serif; }
 
     /* =====================
-       TOPBAR
+       TOPBAR (igual ao index.html)
     ====================== */
     .topbar {
       position: fixed;
       top:0; left:0; width:100%;
-      display:flex; justify-content:space-between; align-items:center;
-      padding: 32px; background: #f7f7f5; z-index:100;
+      height:76px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:0 48px;
+      background:#f7f7f5;
+      box-shadow:0 2px 8px rgba(0,0,0,0.05);
+      z-index:1000;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
     }
-    .topbar strong { font-size:20px; }
+    .topbar:hover {
+      box-shadow:0 4px 16px rgba(0,0,0,0.1);
+    }
+    .topbar strong {
+      font-size:20px;
+      letter-spacing:1px;
+    }
     nav a {
       margin-left:24px;
       text-decoration:none;
       color:#111;
       font-weight:500;
       font-size:15px;
+      position:relative;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color:#4ECDC4;
+    }
+    nav a::after {
+      content:'';
+      position:absolute;
+      left:0; bottom:-4px;
+      width:0; height:2px;
+      background:#4ECDC4;
+      transition:width 0.3s ease;
+    }
+    nav a:hover::after {
+      width:100%;
+    }
+    nav a[aria-current="page"] {
+      color:#111;
+      font-weight:600;
+    }
+    nav a[aria-current="page"]::after {
+      width:100%;
+      background:#111;
     }
 
     /* =====================
@@ -109,7 +146,7 @@
       background:#fafafa;
     }
     .plan-body.open { 
-      max-height:1000px; /* altura suficiente para todo conteúdo */
+      max-height:1000px;
       padding:24px; 
     }
 
