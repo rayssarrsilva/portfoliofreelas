@@ -88,7 +88,7 @@
 <section class="contact">
   <div class="contact-form">
     <h2>Envie sua mensagem</h2>
-    <form>
+    <form id="contactForm">
       <label>Nome</label>
       <input type="text" name="nome" placeholder="Seu nome" required>
 
@@ -134,21 +134,31 @@
     });
   });
 
-  // 3) Feedback no envio do formulário
-  const form = document.querySelector('.contact-form form');
-  if (form) {
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const btn = form.querySelector('.btn');
-      btn.textContent = 'Enviado ✔️';
-      btn.style.background = '#2ecc71';
-      setTimeout(() => {
-        btn.textContent = 'Enviar';
-        btn.style.background = '';
-        form.reset();
-      }, 2000);
-    });
-  }
+  // 3) Envio do formulário para WhatsApp
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const nome = form.nome.value;
+    const email = form.email.value;
+    const mensagem = form.mensagem.value;
+
+    const numero = "5534991282814"; 
+    const texto = `Olá! 👋%0ANome: ${nome}%0AEmail: ${email}%0AMensagem: ${mensagem}`;
+
+    // Abre o WhatsApp com a mensagem preenchida
+    window.open(`https://wa.me/${numero}?text=${texto}`, "_blank");
+
+    // Feedback no botão
+    const btn = form.querySelector('.btn');
+    btn.textContent = 'Enviado ✔️';
+    btn.style.background = '#2ecc71';
+    setTimeout(() => {
+      btn.textContent = 'Enviar';
+      btn.style.background = '';
+      form.reset();
+    }, 2000);
+  });
 })();
 </script>
 
