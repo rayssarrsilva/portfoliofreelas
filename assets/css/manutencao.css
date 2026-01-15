@@ -1,140 +1,138 @@
 /* =====================
-   BASE DA PÁGINA
+   LISTA DE PLANOS
 ===================== */
-body {
-  font-family: 'Inter', sans-serif;
-  background: #f7f7f5;
+
+.plans-list {
+  max-width: 1100px;
+  margin: 96px auto;
+  padding: 0 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* LINHA DO PLANO (NÃO É BOTÃO VISUALMENTE) */
+.plan-line {
+  all: unset; /* remove aparência de botão */
+  cursor: pointer;
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: center;
+
+  padding: 32px 0;
+  border-bottom: 1px solid #dcdcdc;
+
+  transition: all 0.35s ease;
+}
+
+.plan-line strong {
+  font-family: 'DM Serif Display', serif;
+  font-size: 28px;
+  font-weight: 400;
   color: #111;
-  line-height: 1.6;
-  padding-top: 96px; /* compensação do menu fixo global */
+}
+
+.plan-line span {
+  font-size: 14px;
+  color: #666;
+  max-width: 360px;
+  text-align: right;
+}
+
+/* HOVER EDITORIAL */
+.plan-line:hover {
+  padding-left: 16px;
+  border-bottom-color: #111;
+}
+
+/* PLANO PREMIUM (MAIS PESO VISUAL, SEM CARD) */
+.plan-line.premium strong {
+  font-size: 30px;
+}
+
+.plan-line.premium span {
+  color: #444;
 }
 
 /* =====================
-   CONTAINER
+   OVERLAY FULLSCREEN
 ===================== */
-.plans {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 96px 24px;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: #f7f7f5;
+  display: none;
+  z-index: 999;
+  padding: 120px 40px 64px;
 }
 
-.plans h1 {
+.overlay.active {
+  display: block;
+}
+
+/* CONTEÚDO CENTRAL */
+.overlay-content {
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* BOTÃO FECHAR (X) */
+.overlay .close {
+  all: unset;
+  position: absolute;
+  top: -64px;
+  right: 0;
+
+  font-size: 20px;
+  cursor: pointer;
+  color: #111;
+}
+
+/* TÍTULO */
+#overlay-title {
   font-family: 'DM Serif Display', serif;
-  font-size: 42px;
+  font-size: 48px;
   margin-bottom: 16px;
 }
 
-.intro {
-  max-width: 640px;
-  font-size: 17px;
+/* PREÇO */
+#overlay-price {
+  font-size: 18px;
+  margin-bottom: 40px;
   color: #444;
-  margin-bottom: 72px;
+}
+
+/* LISTA DE FEATURES */
+#overlay-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#overlay-features li {
+  font-size: 16px;
+  margin-bottom: 14px;
+  line-height: 1.6;
 }
 
 /* =====================
-   CARD / BLOCO
+   RESPONSIVO
 ===================== */
-.plan {
-  background: #fff;
-  border-radius: 14px;
-  padding: 40px;
-  margin-bottom: 48px;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.06);
-  transition: transform .3s ease;
-}
 
-.plan:hover {
-  transform: translateY(-4px);
-}
+@media (max-width: 768px) {
+  .plan-line {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
 
-.plan-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
+  .plan-line span {
+    text-align: left;
+  }
 
-.plan h2 {
-  font-family: 'DM Serif Display', serif;
-  font-size: 26px;
-}
-
-/* =====================
-   BOTÃO
-===================== */
-.toggle {
-  font-size: 13px;
-  padding: 8px 14px;
-  border-radius: 20px;
-  border: 1px solid #111;
-  background: transparent;
-  cursor: pointer;
-  transition: background .25s ease, color .25s ease;
-}
-
-.toggle:hover {
-  background: #111;
-  color: #fff;
-}
-
-/* =====================
-   DESCRIÇÃO
-===================== */
-.plan-desc {
-  font-size: 15px;
-  color: #555;
-  max-width: 520px;
-}
-
-/* =====================
-   PREÇO
-===================== */
-.pricing {
-  margin-top: 24px;
-  display: flex;
-  align-items: baseline;
-  gap: 14px;
-}
-
-.price {
-  font-size: 22px;
-  font-weight: 500;
-}
-
-.installments {
-  font-size: 13px;
-  color: #777;
-}
-
-/* =====================
-   DETALHES (CONTROLADO PELO JS)
-===================== */
-.details {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height .4s ease;
-  margin-top: 24px;
-}
-
-.details.open {
-  margin-top: 32px;
-}
-
-.bullets {
-  padding-left: 18px;
-}
-
-.bullets li {
-  margin-bottom: 10px;
-  font-size: 14px;
-}
-
-/* =====================
-   FOOTER
-===================== */
-footer {
-  padding: 48px 24px;
-  text-align: center;
-  font-size: 13px;
-  color: #666;
+  #overlay-title {
+    font-size: 36px;
+  }
 }

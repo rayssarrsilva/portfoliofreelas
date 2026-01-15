@@ -2,16 +2,19 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Manutenção | Real Result Solutions</title>
+  <title>Manutenção Profissional | Real Result Solutions</title>
 
-  <!-- Fonts já utilizadas no projeto -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <!-- CSS externo -->
-  <link rel="stylesheet" href="assets/css/manutencao.css">
+  <!-- CSS GLOBAL (PADRÃO DO SITE) -->
+  <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/menu.css">
 
+  <!-- CSS ESPECÍFICO DA PÁGINA -->
+  <link rel="stylesheet" href="assets/css/manutencao.css">
 </head>
+
 <body>
 
 <header class="topbar">
@@ -20,120 +23,53 @@
     <a href="index.html">Início</a>
     <a href="planos.html">Planos</a>
     <a href="metodologia.html">Metodologia</a>
-    <a href="manutencao.html">Manutenção</a>
+    <a href="manutencao.html" aria-current="page">Manutenção</a>
     <a href="hospedagem.html">Hospedagem</a>
     <a href="contato.html">Contato</a>
   </nav>
 </header>
 
-<section class="plans">
-  <h1>Planos de Manutenção Recorrente</h1>
+<section class="hero">
+  <h1>Manutenção que mantém seu site seguro, rápido e relevante</h1>
 
-  <p class="intro">
-    Manutenção não é custo. É continuidade, segurança e evolução digital.
-    Escolha o nível de cuidado ideal para o seu negócio.
+  <p>
+    Um site profissional não pode parar, quebrar ou ficar desatualizado.
+    A manutenção contínua garante estabilidade, performance, SEO ativo
+    e evolução constante da sua presença digital.
   </p>
-
-  <!-- START -->
-  <article class="plan" id="start">
-    <div class="plan-head">
-      <h2>Manutenção Start</h2>
-      <button class="toggle" data-target="#start-details">Ver detalhes</button>
-    </div>
-
-    <p class="plan-desc">
-      O essencial para manter seu site seguro, ativo e confiável.
-    </p>
-
-    <div class="pricing">
-      <strong class="price" data-price="80">R$ 80/mês</strong>
-      <span class="installments">ou R$ 700/ano</span>
-    </div>
-
-    <div class="details" id="start-details">
-      <ul class="bullets">
-        <li>Atualizações simples de texto</li>
-        <li>Backup mensal</li>
-        <li>Monitoramento 24/7</li>
-        <li>Suporte de 1h por dia útil</li>
-      </ul>
-    </div>
-  </article>
-
-  <!-- ESSENCIAL -->
-  <article class="plan" id="essencial">
-    <div class="plan-head">
-      <h2>Manutenção Essencial</h2>
-      <button class="toggle" data-target="#essencial-details">Ver detalhes</button>
-    </div>
-
-    <p class="plan-desc">
-      Para negócios que precisam crescer com consistência e SEO ativo.
-    </p>
-
-    <div class="pricing">
-      <strong class="price" data-price="180">R$ 180/mês</strong>
-      <span class="installments">ou R$ 1.600/ano</span>
-    </div>
-
-    <div class="details" id="essencial-details">
-      <ul class="bullets">
-        <li>Tudo do plano Start</li>
-        <li>Atualizações semanais</li>
-        <li>SEO mensal</li>
-        <li>Backup quinzenal</li>
-        <li>Suporte de 3h por dia útil</li>
-      </ul>
-    </div>
-  </article>
-
-  <!-- AVANÇADA -->
-  <article class="plan" id="avancada">
-    <div class="plan-head">
-      <h2>Manutenção Avançada</h2>
-      <button class="toggle" data-target="#avancada-details">Ver detalhes</button>
-    </div>
-
-    <p class="plan-desc">
-      Evolução contínua, otimização estratégica e suporte prioritário.
-    </p>
-
-    <div class="pricing">
-      <strong class="price" data-price="310">R$ 310/mês</strong>
-      <span class="installments">ou R$ 2.920/ano</span>
-    </div>
-
-    <div class="details" id="avancada-details">
-      <ul class="bullets">
-        <li>SEO contínuo</li>
-        <li>Performance mensal</li>
-        <li>Ajustes estratégicos</li>
-        <li>Relatórios mensais</li>
-        <li>Suporte prioritário</li>
-      </ul>
-    </div>
-  </article>
 </section>
 
-<section class="quote-card">
-  <blockquote class="quote active">
-    “Nós não apenas mantemos sites, nós garantimos resultados contínuos.”
-  </blockquote>
-  <blockquote class="quote">
-    “Manutenção é estratégia, não correção.”
-  </blockquote>
-  <blockquote class="quote">
-    “Seu site precisa evoluir no mesmo ritmo do seu negócio.”
-  </blockquote>
+<section class="plans-list container">
+  <button class="plan-line" data-plan="start">
+    <strong>Manutenção Start</strong>
+    <span>Estabilidade e segurança essencial</span>
+  </button>
+
+  <button class="plan-line" data-plan="essencial">
+    <strong>Manutenção Essencial</strong>
+    <span>Conteúdo atualizado e SEO ativo</span>
+  </button>
+
+  <button class="plan-line premium" data-plan="avancada">
+    <strong>Manutenção Avançada</strong>
+    <span>Performance, conversão e crescimento contínuo</span>
+  </button>
 </section>
+
+<!-- OVERLAY FULLSCREEN -->
+<div class="overlay" id="overlay">
+  <div class="overlay-content">
+    <button class="close">✕</button>
+    <h2 id="overlay-title"></h2>
+    <p id="overlay-price"></p>
+    <ul id="overlay-features"></ul>
+  </div>
+</div>
 
 <footer>
-  <p><strong>Real Result Solutions (R&R)</strong></p>
-  <p>© 2026 — Todos os direitos reservados</p>
+  © 2026 — Real Result Solutions. Manutenção profissional e estratégica.
 </footer>
 
-<!-- JS externo -->
 <script src="js/manutencao.js"></script>
-
 </body>
 </html>
