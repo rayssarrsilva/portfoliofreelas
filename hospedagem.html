@@ -2,18 +2,22 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Hospedagem | Real Result Solutions</title>
+  <title>Hospedagem Profissional | Real Result Solutions</title>
 
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/menu.css">
+
+  <!-- CSS GLOBAL -->
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/menu.css">
+
+  <!-- CSS DA PÁGINA -->
+  <link rel="stylesheet" href="assets/css/hospedagem.css">
 </head>
 <body>
 
 <header class="topbar">
   <strong>R&R</strong>
   <nav>
-    <a href="javascript:history.back()">Voltar</a>
     <a href="index.html">Início</a>
     <a href="planos.html">Planos</a>
     <a href="metodologia.html">Metodologia</a>
@@ -23,173 +27,91 @@
   </nav>
 </header>
 
-<section class="plans">
-  <h1>Planos de Hospedagem — “Escolha sua performance”</h1>
+<section class="hero container">
+  <h1>Hospedagem que sustenta performance, SEO e crescimento</h1>
   <p>
-    Nós oferecemos hospedagem sob medida para cada fase do seu negócio. 
-    Garantimos estabilidade, segurança e performance, sem que você precise se preocupar com infraestrutura.
+    Hospedar um site não é apenas “colocar no ar”.
+    É garantir velocidade, segurança, escalabilidade e estabilidade contínua.
   </p>
-
-  <!-- Básica -->
-  <article class="plan">
-    <div class="plan-head">
-      <h2>Hospedagem Básica — Estável e acessível</h2>
-      <button class="toggle" data-target="#basica">Ver detalhes</button>
-    </div>
-    <p class="plan-desc">
-      Inclusa nos planos Start+ e Essencial, ideal para negócios locais com tráfego moderado.
-    </p>
-    <div class="details" id="basica">
-      <ul class="bullets">
-        <li>Até 50 acessos simultâneos.</li>
-        <li>Servidor compartilhado otimizado.</li>
-        <li>SSL ativo + backup mensal.</li>
-        <li>Monitoramento básico.</li>
-        <li>Cache simples incluso.</li>
-        <li>📦 Sem custo adicional.</li>
-      </ul>
-    </div>
-  </article>
-
-  <!-- Média -->
-  <article class="plan">
-    <div class="plan-head">
-      <h2>Hospedagem Média — Pronta para crescer</h2>
-      <button class="toggle" data-target="#media">Ver detalhes</button>
-    </div>
-    <p class="plan-desc">
-      VPS Cloud escalável para negócios em expansão, clínicas, estúdios e campanhas digitais.
-    </p>
-    <div class="pricing">
-      <strong class="price" data-price="250">R$ 250/mês</strong>
-      <span class="installments">ou R$ 2.500/ano (economia de R$ 500)</span>
-    </div>
-    <div class="details" id="media">
-      <ul class="bullets">
-        <li>Até 500 acessos simultâneos.</li>
-        <li>CDN configurada (Cloudflare).</li>
-        <li>Cache premium básico (WP Rocket ou equivalente).</li>
-        <li>Backup semanal + monitoramento 24/7.</li>
-        <li>📦 Upgrade recomendado para tráfego médio.</li>
-      </ul>
-    </div>
-  </article>
-
-  <!-- Avançada -->
-  <article class="plan">
-    <div class="plan-head">
-      <h2>Hospedagem Avançada — Alta performance</h2>
-      <button class="toggle" data-target="#avancada">Ver detalhes</button>
-    </div>
-    <p class="plan-desc">
-      Cloud Hosting dedicado para e-commerces, portais e negócios com alto volume de tráfego.
-    </p>
-    <div class="pricing">
-      <strong class="price" data-price="690">R$ 690/mês</strong>
-      <span class="installments">ou R$ 6.900/ano (economia de R$ 1.380)</span>
-    </div>
-    <div class="details" id="avancada">
-      <ul class="bullets">
-        <li>Suporta milhares de acessos simultâneos.</li>
-        <li>CDN premium + cache avançado.</li>
-        <li>Segurança reforçada.</li>
-        <li>Backup diário + suporte técnico dedicado.</li>
-        <li>📦 Infraestrutura profissional para escalar sem limites.</li>
-      </ul>
-    </div>
-  </article>
 </section>
 
-<!-- Frases de autoridade -->
-<section class="quote-card">
-  <blockquote class="quote active">“Nós não apenas hospedamos sites, nós garantimos performance contínua.”</blockquote>
-  <blockquote class="quote">“Cada plano é pensado para proteger e escalar seu negócio.”</blockquote>
-  <blockquote class="quote">“Hospedagem é confiança: nós cuidamos da base para você focar no crescimento.”</blockquote>
+<section class="hosting-plans container">
+
+  <!-- PLANO ESSENCIAL -->
+  <article class="hosting-plan" data-plan="essencial">
+    <header>
+      <h2>Hospedagem Essencial</h2>
+      <span class="price">Inclusa</span>
+    </header>
+
+    <p class="subtitle">Para sites institucionais, portfólios e negócios locais.</p>
+
+    <ul class="features">
+      <li>SSL automático e renovação contínua</li>
+      <li>Servidor otimizado para SEO técnico</li>
+      <li>Cache inteligente de páginas</li>
+      <li>Backup automático mensal</li>
+      <li>Monitoramento básico de uptime</li>
+    </ul>
+
+    <button class="open-details">Ver infraestrutura</button>
+  </article>
+
+  <!-- PLANO PROFISSIONAL -->
+  <article class="hosting-plan highlight" data-plan="profissional">
+    <header>
+      <h2>Hospedagem Profissional</h2>
+      <span class="price">R$ 290/mês</span>
+    </header>
+
+    <p class="subtitle">Para empresas em crescimento e campanhas digitais.</p>
+
+    <ul class="features">
+      <li>VPS Cloud dedicada</li>
+      <li>CDN global integrada</li>
+      <li>Backup semanal + restauração assistida</li>
+      <li>Firewall de aplicação (WAF)</li>
+      <li>Relatórios mensais de performance</li>
+    </ul>
+
+    <button class="open-details">Ver infraestrutura</button>
+  </article>
+
+  <!-- PLANO PERFORMANCE -->
+  <article class="hosting-plan premium" data-plan="performance">
+    <header>
+      <h2>Hospedagem Performance</h2>
+      <span class="price">R$ 690/mês</span>
+    </header>
+
+    <p class="subtitle">Para e-commerces, portais e projetos de alto tráfego.</p>
+
+    <ul class="features">
+      <li>Infraestrutura cloud escalável</li>
+      <li>Cache avançado em múltiplas camadas</li>
+      <li>Backup diário com versionamento</li>
+      <li>Suporte técnico prioritário</li>
+      <li>Arquitetura preparada para picos</li>
+    </ul>
+
+    <button class="open-details">Ver infraestrutura</button>
+  </article>
+
 </section>
+
+<!-- OVERLAY FULLSCREEN -->
+<div class="infra-overlay" id="infraOverlay">
+  <div class="infra-content">
+    <button class="close-overlay">← Voltar</button>
+    <h3 id="infraTitle"></h3>
+    <ul id="infraList"></ul>
+  </div>
+</div>
 
 <footer>
-  <p><strong>Real Result Solutions (R&R)</strong></p>
-  <p>Consultoria especializada em desenvolvimento, manutenção e hospedagem de sites com SEO e performance.</p>
-  <p>© 2026 — Todos os direitos reservados</p>
+  © 2026 — Real Result Solutions. Hospedagem estratégica e profissional.
 </footer>
 
-<!-- Script JS -->
-<script>
-(() => {
-  const qsa = sel => Array.from(document.querySelectorAll(sel));
-  const qs = sel => document.querySelector(sel);
-
-  // Acordeão suave
-  qsa('.toggle').forEach(btn => {
-    const target = qs(btn.dataset.target);
-    btn.addEventListener('click', () => {
-      const isOpen = target.classList.contains('open');
-      qsa('.details.open').forEach(d => {
-        d.style.maxHeight = '0px';
-        d.classList.remove('open');
-      });
-      if (!isOpen) {
-        target.classList.add('open');
-        target.style.maxHeight = target.scrollHeight + 'px';
-        qsa('li', target).forEach((li, i) => {
-          li.style.opacity = 0;
-          li.style.transform = 'translateY(8px)';
-          setTimeout(() => {
-            li.style.transition = 'opacity .4s ease, transform .4s ease';
-            li.style.opacity = 1;
-            li.style.transform = 'translateY(0)';
-          }, 80 * i);
-        });
-      }
-    });
-  });
-
-  // Contador animado dos preços
-  qsa('.price').forEach(el => {
-    const target = parseInt(el.dataset.price, 10);
-    let current = 0;
-    const step = target / 40;
-    const timer = setInterval(() => {
-      current += step;
-      if (current >= target) {
-        current = target;
-        clearInterval(timer);
-      }
-      el.textContent = `R$ ${Math.floor(current)}/mês`;
-    }, 40);
-  });
-
-  // Rotação de frases
-  const quotes = qsa('.quote-card .quote');
-  let qIndex = 0;
-  setInterval(() => {
-    quotes[qIndex].classList.remove('active');
-    qIndex = (qIndex + 1) % quotes.length;
-    quotes[qIndex].classList.add('active');
-  }, 4000);
-
-  // Barra de progresso
-  const progressBar = document.createElement('div');
-  Object.assign(progressBar.style, {
-    position: 'fixed',
-    top: '0',
-    left: '0',
-    height: '4px',
-    width: '0%',
-    background: '#111',
-    zIndex: '9999',
-    transition: 'width .15s linear'
-  });
-  document.body.appendChild(progressBar);
-
-  const updateProgress = () => {
-    const h = document.documentElement.scrollHeight - window.innerHeight;
-    const y = window.scrollY;
-    const pct = h > 0 ? (y / h) * 100 : 0;
-    progressBar.style.width = pct + '%';
-  };
-  window.addEventListener('scroll', updateProgress);
-})();
-</script>
+<script src="js/hospedagem.js"></script>
 </body>
 </html>
