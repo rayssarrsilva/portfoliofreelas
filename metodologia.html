@@ -1,169 +1,163 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Metodologia | Real Result Solutions</title>
+<meta charset="UTF-8">
+<title>Metodologia | Real Result Solutions</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <style>
-    /* =====================
-       RESET & BASE
-    ====================== */
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f7f7f5;
-      color: #111;
-      line-height: 1.6;
-      padding-top: 96px;
-    }
-    h1,h2,h3 { font-family: 'DM Serif Display', serif; }
+<style>
+/* =====================
+   RESET & BASE
+===================== */
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Inter', sans-serif;
+  background:#f7f7f5;
+  color:#111;
+  line-height:1.6;
+  padding-top:96px;
+}
+h1,h2,h3 { font-family:'DM Serif Display', serif; }
 
-    /* =====================
-       TOPBAR (igual ao index.html)
-    ====================== */
-    .topbar {
-      position: fixed;
-      top:0; left:0; width:100%;
-      height:76px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:0 48px;
-      background:#f7f7f5;
-      box-shadow:0 2px 8px rgba(0,0,0,0.05);
-      z-index:1000;
-      transition: background 0.3s ease, box-shadow 0.3s ease;
-    }
-    .topbar:hover {
-      box-shadow:0 4px 16px rgba(0,0,0,0.1);
-    }
-    .topbar strong {
-      font-size:20px;
-      letter-spacing:1px;
-    }
-    nav a {
-      margin-left:24px;
-      text-decoration:none;
-      color:#111;
-      font-weight:500;
-      font-size:15px;
-      position:relative;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color:#4ECDC4;
-    }
-    nav a::after {
-      content:'';
-      position:absolute;
-      left:0; bottom:-4px;
-      width:0; height:2px;
-      background:#4ECDC4;
-      transition:width 0.3s ease;
-    }
-    nav a:hover::after {
-      width:100%;
-    }
-    nav a[aria-current="page"] {
-      color:#111;
-      font-weight:600;
-    }
-    nav a[aria-current="page"]::after {
-      width:100%;
-      background:#111;
-    }
+/* =====================
+   TOPBAR (igual index.html)
+===================== */
+.topbar {
+  position: fixed;
+  top:0; left:0; width:100%;
+  height:76px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 48px;
+  background: rgba(247,247,245,0.92);
+  backdrop-filter: blur(6px);
+  border-bottom:1px solid rgba(0,0,0,0.05);
+  z-index:1000;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+.topbar strong {
+  font-family:'DM Serif Display', serif;
+  font-size:20px;
+  letter-spacing:1px;
+  white-space:nowrap;
+}
+.topbar nav {
+  display:flex; align-items:center;
+}
+.topbar nav a {
+  margin-left:32px;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:500;
+  letter-spacing:0.4px;
+  color:#111;
+  position:relative;
+  transition:opacity .2s ease, color .3s ease;
+}
+.topbar nav a::after {
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0;
+  height:1px;
+  background:#111;
+  transition: width .3s ease;
+}
+.topbar nav a:hover::after { width:100%; }
+.topbar nav a[aria-current="page"] {
+  opacity:0.7;
+  pointer-events:none;
+}
+.topbar nav a[aria-current="page"]::after { width:100%; }
 
-    /* =====================
-       HERO
-    ====================== */
-    .hero {
-      text-align:center;
-      padding:120px 32px 80px;
-      max-width:900px;
-      margin:0 auto;
-    }
-    .hero h1 { font-size:60px; margin-bottom:24px; }
-    .hero p { font-size:20px; color:#444; }
+/* =====================
+   HERO
+===================== */
+.hero {
+  text-align:center;
+  padding:120px 32px 80px;
+  max-width:900px;
+  margin:0 auto;
+}
+.hero h1 { font-size:60px; margin-bottom:24px; }
+.hero p { font-size:20px; color:#444; }
 
-    /* =====================
-       CARDS
-    ====================== */
-    .container { 
-      max-width:1000px; 
-      margin:0 auto; 
-      padding:0 32px; 
-      display:grid; 
-      gap:40px; 
-    }
-    .plan-card {
-      background:#fff;
-      border-radius:12px;
-      box-shadow:0 8px 20px rgba(0,0,0,0.08);
-      overflow:hidden;
-      border-top:8px solid #111;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor:pointer;
-    }
-    .plan-card:hover { 
-      transform:translateY(-6px); 
-      box-shadow:0 12px 28px rgba(0,0,0,0.15); 
-    }
+/* =====================
+   CARDS
+===================== */
+.container { 
+  max-width:1000px; 
+  margin:0 auto; 
+  padding:0 32px; 
+  display:grid; 
+  gap:40px; 
+}
+.plan-card {
+  background:#fff;
+  border-radius:12px;
+  overflow:hidden;
+  border-top:8px solid #111;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08); /* mais leve */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor:pointer;
+}
+.plan-card:hover {
+  transform:translateY(-4px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.12); /* hover suave */
+}
 
-    .plan-card[data-step="1"] { border-top-color:#FF6B6B; }
-    .plan-card[data-step="2"] { border-top-color:#4ECDC4; }
-    .plan-card[data-step="3"] { border-top-color:#556270; }
-    .plan-card[data-step="4"] { border-top-color:#C7F464; }
-    .plan-card[data-step="5"] { border-top-color:#FFA500; }
-    .plan-card[data-step="6"] { border-top-color:#6A4C93; }
-    .plan-card[data-step="7"] { border-top-color:#FF69B4; }
+.plan-card[data-step="1"] { border-top-color:#FF6B6B; }
+.plan-card[data-step="2"] { border-top-color:#4ECDC4; }
+.plan-card[data-step="3"] { border-top-color:#556270; }
+.plan-card[data-step="4"] { border-top-color:#C7F464; }
+.plan-card[data-step="5"] { border-top-color:#FFA500; }
+.plan-card[data-step="6"] { border-top-color:#6A4C93; }
+.plan-card[data-step="7"] { border-top-color:#FF69B4; }
 
-    .plan-head { display:flex; justify-content:space-between; align-items:center; padding:24px; }
-    .plan-head h2 { font-size:24px; }
+.plan-head { display:flex; justify-content:space-between; align-items:center; padding:24px; }
+.plan-head h2 { font-size:24px; }
 
-    .toggle {
-      background:#111; 
-      color:#fff; 
-      border:none; 
-      padding:10px 20px; 
-      border-radius:6px;
-      cursor:pointer; 
-      font-weight:500;
-      transition: all 0.25s ease;
-    }
-    .toggle:hover { 
-      background:#333; 
-      transform:scale(1.05); 
-    }
+.toggle {
+  background:#111; 
+  color:#fff; 
+  border:none; 
+  padding:10px 20px; 
+  border-radius:6px;
+  cursor:pointer; 
+  font-weight:500;
+  transition: all 0.25s ease;
+}
+.toggle:hover { background:#333; transform:scale(1.05); }
 
-    .plan-body {
-      max-height:0; 
-      overflow:hidden; 
-      padding:0 24px; 
-      transition: max-height 0.5s ease, padding 0.5s ease;
-      background:#fafafa;
-    }
-    .plan-body.open { 
-      max-height:1000px;
-      padding:24px; 
-    }
+.plan-body {
+  max-height:0; 
+  overflow:hidden; 
+  padding:0 24px; 
+  transition: max-height 0.5s ease, padding 0.5s ease;
+  background:#fafafa;
+}
+.plan-body.open { 
+  max-height:1000px;
+  padding:24px; 
+}
+.plan-body p { margin-bottom:12px; color:#333; line-height:1.5; }
 
-    .plan-body p { margin-bottom:12px; color:#333; line-height:1.5; }
+/* =====================
+   QUOTES
+===================== */
+.quote-card { max-width:800px; margin:80px auto; text-align:center; }
+.quote-card .quote { display:none; font-size:22px; font-style:italic; color:#111; }
+.quote-card .quote.active { display:block; }
 
-    /* =====================
-       QUOTES
-    ====================== */
-    .quote-card { max-width:800px; margin:80px auto; text-align:center; }
-    .quote-card .quote { display:none; font-size:22px; font-style:italic; color:#111; }
-    .quote-card .quote.active { display:block; }
-
-    /* =====================
-       FOOTER
-    ====================== */
-    footer { text-align:center; padding:48px 32px; color:#666; font-size:14px; }
-  </style>
+/* =====================
+   FOOTER
+===================== */
+footer { text-align:center; padding:48px 32px; color:#666; font-size:14px; }
+</style>
 </head>
 <body>
 
@@ -186,7 +180,8 @@
 </section>
 
 <section class="container">
-
+  <!-- Cards -->
+  <!-- repetir os 7 cards como antes, mantendo os textos -->
   <!-- CARD 1 -->
   <article class="plan-card" data-step="1">
     <div class="plan-head">
@@ -270,13 +265,12 @@
       <p>Hospedagem configurada para alta performance e atualizações estratégicas de SEO.</p>
     </div>
   </article>
-
 </section>
 
 <section class="quote-card">
   <blockquote class="quote active">“Nós não otimizamos apenas sites, nós otimizamos resultados.”</blockquote>
   <blockquote class="quote">“SEO é método, não sorte. E nós seguimos cada etapa com precisão.”</blockquote>
-  <blockquote class="quote">“Performance técnica sem conteúdo relevante é invisibilidade digital.”</blockquote>
+  <blockquote class="quote">“Performance técnica sem conteúdo relevante é invisibilidade digital.”blockquote>
 </section>
 
 <footer>
@@ -314,6 +308,5 @@
   }, 4000);
 })();
 </script>
-
 </body>
 </html>
